@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1110 684" width="1110" height="684" role="img" aria-label="Blackjack win screen">
+  <defs>
+    <linearGradient id="t2" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#2e7fb5"/><stop offset=".72" stop-color="#17527b"/>
+    </linearGradient>
+    <linearGradient id="g2" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#ffe27a"/><stop offset="1" stop-color="#e0a21a"/>
+    </linearGradient>
+  </defs>
+  <rect width="1110" height="684" fill="url(#t2)"/>
+  <circle cx="555" cy="300" r="300" fill="#fff" fill-opacity=".06"/>
+  <g transform="translate(555 216)">
+    <rect x="-286" y="-58" width="572" height="116" rx="58" fill="#0b2f4a" fill-opacity=".8" stroke="url(#g2)" stroke-width="5"/>
+    <text x="0" y="16" text-anchor="middle" font-family="Georgia,serif" font-size="62" font-weight="700" fill="url(#g2)" stroke="#6b3d07" stroke-width="1.4">BLACKJACK!</text>
+  </g>
+  <g transform="translate(418 328)">
+    <g transform="rotate(-9)">
+      <rect width="112" height="154" rx="11" fill="#fdfdfd" stroke="#cfcfcf" stroke-width="2"/>
+      <text x="16" y="44" font-family="Georgia,serif" font-size="37" font-weight="700" fill="#16181d">A</text>
+      <path d="M56 74c-12 12-19 17-19 25a9.6 9.6 0 0 0 15.6 7.3c-.7 4-2.3 7-5 8.9h16.8c-2.7-1.9-4.3-4.9-5-8.9a9.6 9.6 0 0 0 15.6-7.3c0-8-7-13-19-25Z" fill="#16181d"/>
+    </g>
+    <g transform="translate(150 6) rotate(8)">
+      <rect width="112" height="154" rx="11" fill="#fdfdfd" stroke="#cfcfcf" stroke-width="2"/>
+      <text x="16" y="44" font-family="Georgia,serif" font-size="37" font-weight="700" fill="#d92d3c">K</text>
+      <rect x="32" y="62" width="56" height="74" rx="7" fill="#d92d3c" opacity=".85"/>
+    </g>
+  </g>
+  <g transform="translate(555 560)">
+    <rect x="-142" y="-34" width="284" height="68" rx="34" fill="#0d4f31" stroke="#34d399" stroke-width="4"/>
+    <text x="0" y="12" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="34" font-weight="700" fill="#b9f8d3">+ 3,000</text>
+  </g>
+  <g opacity=".92">
+    <circle cx="150" cy="120" r="26" fill="#d92d3c" stroke="#fff" stroke-width="4"/>
+    <circle cx="960" cy="150" r="22" fill="#7e22ce" stroke="#fff" stroke-width="4"/>
+    <circle cx="240" cy="470" r="19" fill="#16a34a" stroke="#fff" stroke-width="3.5"/>
+    <circle cx="880" cy="440" r="24" fill="#1f3a93" stroke="#fff" stroke-width="4"/>
+    <circle cx="1020" cy="330" r="16" fill="#f5c02e" stroke="#fff" stroke-width="3"/>
+    <circle cx="90" cy="320" r="15" fill="#0e7490" stroke="#fff" stroke-width="3"/>
+  </g>
+  <rect x="0" y="640" width="1110" height="44" fill="#1b1b1f"/>
+  <text x="40" y="670" font-family="Helvetica,Arial,sans-serif" font-size="19" font-weight="700" fill="#fbbf24">Balance 12.7K</text>
+</svg>

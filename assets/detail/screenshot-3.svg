@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1110 684" width="1110" height="684" role="img" aria-label="Blackjack betting screen">
+  <defs>
+    <linearGradient id="t3" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#1f7a4d"/><stop offset="1" stop-color="#0b4029"/>
+    </linearGradient>
+  </defs>
+  <rect width="1110" height="684" fill="url(#t3)"/>
+  <text x="555" y="104" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="34" font-weight="700" fill="#fff" fill-opacity=".9">PLACE YOUR BET</text>
+  <g fill="none" stroke="#ffffff" stroke-opacity=".38" stroke-width="5" stroke-dasharray="14 10">
+    <circle cx="300" cy="320" r="76"/><circle cx="555" cy="350" r="88"/><circle cx="810" cy="320" r="76"/>
+  </g>
+  <g font-family="Helvetica,Arial,sans-serif" text-anchor="middle" fill="#ffffff" fill-opacity=".55" font-size="22">
+    <text x="300" y="330">SEAT 1</text><text x="810" y="330">SEAT 3</text>
+  </g>
+  <g transform="translate(555 350)">
+    <circle r="40" fill="#d92d3c" stroke="#fff" stroke-width="6"/>
+    <circle r="21" fill="none" stroke="#fff" stroke-width="6" stroke-dasharray="9 8"/>
+    <text y="72" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="26" font-weight="700" fill="#fff">500</text>
+  </g>
+  <g transform="translate(555 530)">
+    <rect x="-330" y="-42" width="660" height="84" rx="42" fill="#06301f" fill-opacity=".72"/>
+    <g transform="translate(-250 0)"><circle r="31" fill="#d92d3c" stroke="#fff" stroke-width="5"/><text y="8" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="17" font-weight="700" fill="#fff">100</text></g>
+    <g transform="translate(-150 0)"><circle r="31" fill="#16a34a" stroke="#fff" stroke-width="5"/><text y="8" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="17" font-weight="700" fill="#fff">500</text></g>
+    <g transform="translate(-50 0)"><circle r="34" fill="#7e22ce" stroke="#fde047" stroke-width="6"/><text y="8" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="17" font-weight="700" fill="#fff">5K</text></g>
+    <g transform="translate(50 0)"><circle r="31" fill="#1f3a93" stroke="#fff" stroke-width="5"/><text y="8" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="16" font-weight="700" fill="#fff">10K</text></g>
+    <g transform="translate(150 0)"><circle r="31" fill="#0e7490" stroke="#fff" stroke-width="5"/><text y="8" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="16" font-weight="700" fill="#fff">20K</text></g>
+    <g transform="translate(250 0)"><circle r="31" fill="#b45309" stroke="#fff" stroke-width="5"/><text y="8" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="17" font-weight="700" fill="#fff">ALL</text></g>
+  </g>
+  <g transform="translate(940 620)">
+    <rect x="-96" y="-32" width="192" height="64" rx="32" fill="#f5c02e" stroke="#fff" stroke-width="4"/>
+    <text y="10" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="30" font-weight="700" fill="#5c3a04">DEAL</text>
+  </g>
+  <rect x="0" y="0" width="1110" height="10" fill="#f5c02e" opacity=".5"/>
+</svg>

@@ -1,0 +1,584 @@
+/* ============================================================
+   FunMax Games — 样式表
+   配色：背景 #181b62 / 描边 #717392 / logo 渐变 #4AB2FF → #247BFF
+   设计取舍：
+     1. 网格用 CSS Grid，不用 flex + nth-child 硬编码 margin
+     2. 次要文字用 #a8b0e8，保证深色底上的对比度达 WCAG AA
+     3. 卡片除图标外还显示游戏名与标签
+   ============================================================ */
+
+:root {
+  --bg: #181b62;
+  --bg-soft: #1f2374;
+  --bg-card: #232a86;
+  --stroke: #717392;
+  --text: #ffffff;
+  --text-dim: #a8b0e8;      /* 比描边色更亮，保证正文对比度 */
+  --brand-1: #4ab2ff;
+  --brand-2: #247bff;
+  --accent: #fbbf24;
+  --danger: #ee0a24;
+  --radius-card: 14px;
+  --radius-lg: 20px;
+  --maxw: 1180px;
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  background: var(--bg);
+  color: var(--text);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial,
+               "PingFang SC", "Microsoft YaHei", sans-serif;
+  -webkit-tap-highlight-color: rgba(0,0,0,0);
+  -webkit-text-size-adjust: 100%;
+}
+
+body { display: flex; flex-direction: column; min-height: 100vh; }
+
+a { color: var(--brand-1); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+h1, h2, h3, p, ul, li, figure { margin: 0; }
+ul { list-style: none; padding: 0; }
+button { font: inherit; color: inherit; background: none; border: 0; cursor: pointer; }
+
+/* 键盘焦点可见 —— 无障碍必需 */
+:focus-visible {
+  outline: 3px solid var(--brand-1);
+  outline-offset: 2px;
+  border-radius: 6px;
+}
+
+.visually-hidden {
+  position: absolute; width: 1px; height: 1px;
+  margin: -1px; padding: 0; overflow: hidden;
+  clip: rect(0 0 0 0); white-space: nowrap; border: 0;
+}
+
+.skip-link {
+  position: absolute; left: 12px; top: -48px;
+  z-index: 100; padding: 10px 16px;
+  background: #fff; color: #181b62; font-weight: 700;
+  border-radius: 0 0 8px 8px; transition: top .18s;
+}
+.skip-link:focus { top: 0; }
+
+/* ======================= 头部 ======================= */
+.common-header {
+  position: sticky; top: 0; z-index: 30;
+  background: rgba(24, 27, 98, .92);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(113, 115, 146, .45);
+}
+/* 移动端优先：两行布局（logo+搜索 / 导航横滑），避免 flex-wrap 撑成三行 */
+.header-inner {
+  max-width: var(--maxw); margin: 0 auto;
+  padding: 8px 12px;
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  grid-template-areas:
+    "logo search"
+    "nav  nav";
+  align-items: center;
+  column-gap: 10px; row-gap: 6px;
+}
+.home-link { grid-area: logo; display: flex; align-items: center; gap: 7px; padding: 7px 2px; }
+.home-link:hover { text-decoration: none; }
+.home-icon { width: 30px; height: 30px; display: block; flex: 0 0 auto; }
+.home-title { font-weight: 700; font-size: 17px; color: #fff; letter-spacing: .2px; }
+
+.main-nav {
+  grid-area: nav;
+  display: flex; gap: 4px;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  margin: 0 -12px; padding: 0 12px;   /* 贴边滚动，视觉上不留断口 */
+}
+.main-nav::-webkit-scrollbar { display: none; }
+.main-nav a {
+  flex: 0 0 auto;
+  padding: 11px 13px;                 /* 44px 触控高度 */
+  border-radius: 999px;
+  color: var(--text-dim); font-size: 14px; font-weight: 600;
+  border: 1px solid transparent;
+  white-space: nowrap;
+}
+.main-nav a:hover { background: rgba(255,255,255,.09); color: #fff; text-decoration: none; }
+.main-nav a[aria-current="page"] {
+  background: linear-gradient(135deg, var(--brand-1), var(--brand-2));
+  color: #fff; border-color: transparent;
+}
+
+.search-box { grid-area: search; position: relative; min-width: 0; }
+.search-box input {
+  width: 100%; padding: 11px 38px 11px 14px;
+  background: rgba(255,255,255,.1);
+  border: 1px solid rgba(113,115,146,.6);
+  border-radius: 999px; color: #fff; font-size: 15px;  /* ≥16px 可避免 iOS 聚焦缩放，这里配合可缩放 viewport 取 15px */
+}
+.search-box input::placeholder { color: var(--text-dim); }
+.search-box input:focus { background: rgba(255,255,255,.16); outline-offset: 0; }
+.search-clear {
+  position: absolute; right: 6px; top: 50%; transform: translateY(-50%);
+  width: 32px; height: 32px; border-radius: 50%;
+  color: var(--text-dim); font-size: 19px; line-height: 1;
+  display: flex; align-items: center; justify-content: center;
+}
+.search-clear:hover { background: rgba(255,255,255,.15); color: #fff; }
+
+/* ======================= 主体 ======================= */
+#main { flex: 1 0 auto; max-width: var(--maxw); width: 100%; margin: 0 auto; padding: 20px 16px 48px; }
+
+.page-title { font-size: clamp(21px, 5vw, 31px); line-height: 1.25; font-weight: 800; }
+.page-sub { margin-top: 8px; color: var(--text-dim); font-size: 15px; line-height: 1.6; }
+
+.chip-row { display: flex; gap: 8px; margin: 20px 0 8px; overflow-x: auto; padding-bottom: 6px; scrollbar-width: thin; }
+.chip {
+  flex: 0 0 auto; padding: 11px 14px; border-radius: 999px;
+  background: rgba(255,255,255,.08);
+  border: 1px solid rgba(113,115,146,.55);
+  color: var(--text-dim); font-size: 13.5px; font-weight: 600; white-space: nowrap;
+}
+.chip:hover { color: #fff; background: rgba(255,255,255,.14); }
+.chip.is-active {
+  background: linear-gradient(135deg, var(--brand-1), var(--brand-2));
+  border-color: transparent; color: #fff;
+}
+.chip-n { opacity: .72; font-weight: 500; margin-left: 3px; }
+
+.list-toolbar { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin: 16px 0 12px; }
+.section-title { font-size: 18px; font-weight: 700; }
+.sort-wrap select {
+  padding: 11px 12px; border-radius: 10px; font-size: 13.5px;
+  background: rgba(255,255,255,.1); color: #fff;
+  border: 1px solid rgba(113,115,146,.6);
+}
+.sort-wrap select option { background: #1f2374; color: #fff; }
+
+/* ======================= 游戏网格 =======================
+   用 Grid 而非 flex + 固定 vw：放大卡用 span 2 自然跨格，不依赖元素顺序 */
+.game-list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+}
+.game-item { min-width: 0; }
+.game-item.is-wide { grid-column: span 2; grid-row: span 2; }
+
+.common-game-item {
+  position: relative;
+  width: 100%; height: 100%;
+  aspect-ratio: 1 / 1;
+  border-radius: var(--radius-card);
+  overflow: hidden;
+  background: var(--bg-card);
+  border: 2px solid var(--stroke);
+  transition: transform .18s ease, border-color .18s ease, box-shadow .18s ease;
+}
+.game-item.is-wide .common-game-item { aspect-ratio: auto; }
+.common-game-item:hover {
+  transform: translateY(-3px);
+  border-color: var(--brand-1);
+  box-shadow: 0 10px 26px rgba(0,0,0,.4);
+}
+
+.common-game-link { display: block; width: 100%; height: 100%; position: relative; }
+.common-game-link:hover { text-decoration: none; }
+.common-game-icon { display: block; width: 100%; height: 100%; object-fit: cover; }
+
+/* 卡片底部信息条。
+   小屏 3 列时卡片仅约 105px 宽，字号必须压到 10.5px 才放得下完整游戏名。 */
+.game-meta {
+  position: absolute; left: 0; right: 0; bottom: 0;
+  padding: 14px 6px 5px;
+  background: linear-gradient(to top, rgba(10,12,48,.95) 38%, rgba(10,12,48,0));
+  display: flex; flex-direction: column; gap: 1px;
+}
+.game-name {
+  color: #fff; font-size: 10.5px; font-weight: 700; line-height: 1.25;
+  display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;
+}
+.game-tag {
+  color: var(--text-dim); font-size: 9.5px;
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+}
+.game-item.is-wide .game-meta { padding: 20px 11px 9px; }
+.game-item.is-wide .game-name { font-size: 15px; -webkit-line-clamp: 1; }
+.game-item.is-wide .game-tag { font-size: 12px; }
+
+.badge {
+  position: absolute; top: 7px; left: 7px; z-index: 2;
+  padding: 3px 8px; border-radius: 999px;
+  font-size: 10px; font-weight: 800; letter-spacing: .4px;
+}
+.badge-hot { background: var(--danger); color: #fff; }
+.badge-new { background: var(--accent); color: #3a2600; }
+
+.fav-btn {
+  position: absolute; top: 4px; right: 4px; z-index: 3;
+  width: 32px; height: 32px; border-radius: 50%;
+  background: rgba(10,12,48,.62); color: rgba(255,255,255,.6);
+  font-size: 15px; line-height: 1;
+  display: flex; align-items: center; justify-content: center;
+  transition: transform .15s, color .15s;
+}
+/* 视觉 32px、热区 46px —— 小卡片上放不下 44px 的按钮本体 */
+.fav-btn::after { content: ''; position: absolute; inset: -7px; border-radius: 50%; }
+.fav-btn:hover { transform: scale(1.14); color: #fff; }
+.fav-btn[aria-pressed="true"] { color: #ff4d6d; }
+
+.empty-state { margin: 28px 0; color: var(--text-dim); text-align: center; font-size: 15px; }
+.link-btn { color: var(--brand-1); text-decoration: underline; }
+
+/* ======================= SEO 文案区 ======================= */
+.seo-block { margin-top: 38px; padding-top: 22px; border-top: 1px solid rgba(113,115,146,.4); }
+.seo-block h2 { font-size: 18px; margin: 20px 0 9px; }
+.seo-block h2:first-child { margin-top: 0; }
+.seo-block p { color: var(--text-dim); font-size: 14.5px; line-height: 1.75; margin-bottom: 11px; }
+
+/* ======================= 详情页 ======================= */
+.detail-top { display: flex; align-items: center; gap: 12px; margin-bottom: 14px; flex-wrap: wrap; }
+.back-btn {
+  display: inline-flex; align-items: center; gap: 6px;
+  padding: 8px 14px; border-radius: 999px;
+  background: rgba(255,255,255,.1); border: 1px solid rgba(113,115,146,.6);
+  font-size: 14px; font-weight: 600; color: var(--text-dim);
+}
+.back-btn:hover { color: #fff; background: rgba(255,255,255,.16); }
+
+.breadcrumb { font-size: 13px; color: var(--text-dim); }
+.breadcrumb a { color: var(--text-dim); }
+.breadcrumb a:hover { color: #fff; }
+.breadcrumb span { margin: 0 6px; opacity: .6; }
+
+.detail-head { display: flex; gap: 14px; align-items: flex-start; margin-bottom: 16px; }
+.detail-icon {
+  width: 76px; height: 76px; border-radius: 16px; flex: 0 0 auto;
+  border: 2px solid var(--stroke); object-fit: cover;
+}
+.detail-h1 { font-size: clamp(20px, 4.6vw, 27px); font-weight: 800; line-height: 1.25; }
+.detail-sub { margin-top: 6px; color: var(--text-dim); font-size: 13.5px; display: flex; gap: 10px; flex-wrap: wrap; align-items: center; }
+.pill { padding: 3px 10px; border-radius: 999px; background: rgba(255,255,255,.1); font-size: 12px; }
+
+/* 游戏舞台 */
+.stage-wrap {
+  background: #0e1044;
+  border: 2px solid var(--stroke);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  margin-bottom: 14px;
+}
+.stage-bar {
+  display: flex; align-items: center; gap: 10px; flex-wrap: wrap;
+  padding: 10px 14px; background: rgba(255,255,255,.06);
+  border-bottom: 1px solid rgba(113,115,146,.4);
+}
+.stage-score { font-size: 14px; font-weight: 700; }
+.stage-score b { color: var(--accent); font-variant-numeric: tabular-nums; }
+.stage-spacer { flex: 1 1 auto; }
+.btn {
+  padding: 8px 15px; border-radius: 10px; font-size: 13.5px; font-weight: 700;
+  background: rgba(255,255,255,.12); border: 1px solid rgba(113,115,146,.6);
+}
+.btn:hover { background: rgba(255,255,255,.2); }
+.btn-primary {
+  background: linear-gradient(135deg, var(--brand-1), var(--brand-2));
+  border-color: transparent; color: #fff;
+}
+.btn-primary:hover { filter: brightness(1.1); }
+
+.stage {
+  position: relative;
+  /* 必须是 column：canvas 与操作提示是兄弟节点，横向 flex 会把提示挤到右侧竖排 */
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center; gap: 10px;
+  min-height: 340px; padding: 16px;
+  background:
+    radial-gradient(circle at 30% 20%, rgba(74,178,255,.12), transparent 60%),
+    #0e1044;
+}
+.stage > .tw-hint { margin-top: 0; }
+.stage canvas { max-width: 100%; height: auto; touch-action: none; border-radius: 10px; }
+
+/* 游戏内 DOM 面板通用 */
+.g-grid { display: grid; gap: 8px; }
+.g-msg {
+  position: absolute; inset: 0; z-index: 5;
+  display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 12px;
+  background: rgba(8,10,40,.88); text-align: center; padding: 20px;
+}
+.g-msg h3 { font-size: 22px; }
+.g-msg p { color: var(--text-dim); font-size: 14px; }
+
+/* 评分条 */
+.rate-row { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; margin-bottom: 18px; }
+.stars { display: flex; gap: 2px; }
+.star {
+  font-size: 26px; line-height: 1; padding: 7px 4px;   /* 40px 触控高度 */
+  color: rgba(255,255,255,.3); transition: color .12s, transform .12s;
+}
+.star:hover, .star.is-on { color: var(--accent); }
+.star:hover { transform: scale(1.16); }
+.rate-note { font-size: 13px; color: var(--text-dim); }
+
+.similar-list { display: grid; grid-template-columns: repeat(auto-fill, minmax(96px, 1fr)); gap: 10px; }
+
+/* ======================= 页脚 ======================= */
+.site-footer {
+  flex: 0 0 auto;
+  background: #12143f;
+  border-top: 1px solid rgba(113,115,146,.45);
+  padding: 30px 16px 18px;
+}
+.footer-cols {
+  max-width: var(--maxw); margin: 0 auto;
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 26px;
+}
+.footer-col h2 { font-size: 14px; margin-bottom: 6px; letter-spacing: .3px; }
+.footer-col li { margin-bottom: 0; }
+/* 列表式导航链接给足触控高度（内联正文链接不受此影响） */
+.footer-col a {
+  display: inline-block; padding: 9px 0;
+  color: var(--text-dim); font-size: 13.5px;
+}
+.footer-col a:hover { color: #fff; }
+.footer-note { color: var(--text-dim); font-size: 12.5px; line-height: 1.6; margin-top: 10px; }
+.copyright {
+  max-width: var(--maxw); margin: 24px auto 0;
+  padding-top: 14px; border-top: 1px solid rgba(113,115,146,.3);
+  color: var(--text-dim); font-size: 12.5px; text-align: center;
+}
+
+/* ======================= 响应式 ======================= */
+/* 移动端 3 列时 .is-wide 的 2x2 卡正好把 9 个格位填满。
+   列数变多后同样的跨格会在行尾留下空洞，所以桌面端取消放大，回到等宽网格。 */
+@media (min-width: 560px) {
+  .game-list { grid-template-columns: repeat(auto-fill, minmax(136px, 1fr)); gap: 14px; }
+  .game-item.is-wide { grid-column: auto; grid-row: auto; }
+  .game-item.is-wide .common-game-item { aspect-ratio: 1 / 1; }
+  /* 卡片变宽后字号回调 */
+  .game-meta, .game-item.is-wide .game-meta { padding: 18px 10px 8px; }
+  .game-name, .game-item.is-wide .game-name { font-size: 12.5px; -webkit-line-clamp: 2; }
+  .game-tag, .game-item.is-wide .game-tag { font-size: 11px; }
+}
+
+/* 宽屏：头部回到单行 logo | nav | search */
+@media (min-width: 700px) {
+  .header-inner {
+    padding: 10px 16px;
+    grid-template-columns: auto minmax(0, 1fr) 240px;
+    grid-template-areas: "logo nav search";
+    column-gap: 14px; row-gap: 0;
+  }
+  .main-nav { margin: 0; padding: 0; overflow: visible; }
+  .home-icon { width: 34px; height: 34px; }
+  .home-title { font-size: 19px; }
+}
+@media (min-width: 820px) {
+  .game-list { grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 16px; }
+  #main { padding: 28px 20px 56px; }
+  .detail-icon { width: 92px; height: 92px; }
+  .stage { min-height: 460px; }
+  /* 大屏把游戏面板放大，否则舞台两侧全是空白 */
+  .tw-board { width: min(70vw, 420px); }
+  .mm-board { width: min(70vw, 430px); }
+  .wm-board { width: min(70vw, 410px); }
+  .tt-board { width: min(60vw, 340px); }
+}
+
+/* 横屏手机：让游戏舞台自适应，不强制竖屏 */
+@media (max-height: 520px) and (orientation: landscape) {
+  .common-header { position: static; }
+  .stage { min-height: 260px; padding: 8px; }
+  .seo-block, .site-footer { display: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * { transition: none !important; animation: none !important; }
+}
+
+/* ============================================================
+   各游戏内部样式
+   ============================================================ */
+.tw-hint { margin-top: 12px; color: var(--text-dim); font-size: 12.5px; text-align: center; }
+
+/* ---------- 2048 ---------- */
+.tw-wrap { display: flex; flex-direction: column; align-items: center; }
+.tw-board {
+  display: grid; grid-template-columns: repeat(4, 1fr); gap: 9px;
+  width: min(87vw, 336px); aspect-ratio: 1/1;
+  padding: 9px; background: #1a1f6b; border-radius: 12px;
+}
+.tw-cell {
+  display: flex; align-items: center; justify-content: center;
+  background: rgba(255,255,255,.07); border-radius: 7px;
+  font-weight: 800; font-size: 26px;
+  font-variant-numeric: tabular-nums;
+}
+.tw-cell.is-filled { animation: pop .14s ease-out; }
+@keyframes pop { from { transform: scale(.82); } to { transform: scale(1); } }
+
+/* ---------- Memory ---------- */
+.mm-wrap { display: flex; flex-direction: column; align-items: center; }
+.mm-board {
+  display: grid; grid-template-columns: repeat(4, 1fr); gap: 9px;
+  width: min(87vw, 340px);
+}
+.mm-card {
+  aspect-ratio: 3/4;
+  display: flex; align-items: center; justify-content: center;
+  font-size: clamp(22px, 7vw, 32px);
+  background: linear-gradient(135deg, #3b45b8, #272f8f);
+  border: 2px solid rgba(113,115,146,.7);
+  border-radius: 10px;
+  transition: transform .16s, background .16s;
+}
+.mm-card:hover:not(.is-done) { transform: translateY(-2px); }
+.mm-card.is-open { background: #fff; }
+.mm-card.is-done { background: #16a34a; border-color: #22c55e; cursor: default; }
+
+/* ---------- Whack-a-Mole ---------- */
+.wm-wrap { display: flex; flex-direction: column; align-items: center; }
+.wm-board {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px;
+  width: min(87vw, 340px);
+}
+.wm-hole {
+  position: relative; aspect-ratio: 1/1; overflow: hidden;
+  background: radial-gradient(ellipse at 50% 84%, #4a2c0c 0 46%, #23306e 47%);
+  border: 2px solid rgba(113,115,146,.7);
+  border-radius: 14px;
+}
+.wm-mole {
+  position: absolute; left: 50%; bottom: -60%;
+  transform: translateX(-50%);
+  font-size: clamp(30px, 10vw, 44px); line-height: 1;
+  transition: bottom .12s ease-out;
+}
+.wm-hole.is-up .wm-mole { bottom: 14%; }
+.wm-hole.is-bonk { background: radial-gradient(ellipse at 50% 84%, #7c3a06 0 46%, #3a4aa0 47%); }
+.wm-hole.is-miss { border-color: var(--danger); }
+
+/* ---------- Tic-Tac-Toe ---------- */
+.tt-wrap { display: flex; flex-direction: column; align-items: center; gap: 14px; }
+.tt-modes { display: flex; gap: 8px; }
+.tt-modes .btn.is-on {
+  background: linear-gradient(135deg, var(--brand-1), var(--brand-2));
+  border-color: transparent;
+}
+.tt-board {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px;
+  width: min(80vw, 292px);
+}
+.tt-cell {
+  aspect-ratio: 1/1;
+  display: flex; align-items: center; justify-content: center;
+  font-size: clamp(34px, 11vw, 50px); font-weight: 800; line-height: 1;
+  background: rgba(255,255,255,.08);
+  border: 2px solid rgba(113,115,146,.7);
+  border-radius: 12px;
+}
+.tt-cell:not(:disabled):hover { background: rgba(255,255,255,.17); }
+.tt-cell.is-x { color: #60a5fa; }
+.tt-cell.is-o { color: #fbbf24; }
+.tt-cell.is-win { background: rgba(34,197,94,.3); border-color: #22c55e; }
+.tt-cell:disabled { cursor: default; }
+.tt-turn { color: var(--text-dim); font-size: 14px; min-height: 20px; }
+
+/* ---------- 详情页：操作说明表 ---------- */
+.ctrl-list { margin: 0 0 12px; }
+.ctrl-list li {
+  display: flex; gap: 12px; align-items: baseline;
+  padding: 9px 0; border-bottom: 1px dashed rgba(113,115,146,.35);
+  font-size: 14px;
+}
+.ctrl-list li:last-child { border-bottom: 0; }
+.ctrl-list b {
+  flex: 0 0 116px; color: #fff;
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 13px;
+}
+.ctrl-list span { color: var(--text-dim); line-height: 1.55; }
+
+/* ---------- 详情页：相似游戏卡 ---------- */
+.sim-card { display: block; text-align: center; }
+.sim-card:hover { text-decoration: none; }
+.sim-card img {
+  width: 100%; height: auto; aspect-ratio: 1/1; object-fit: cover;
+  border-radius: 12px; border: 2px solid var(--stroke);
+  transition: transform .16s, border-color .16s;
+}
+.sim-card:hover img { transform: translateY(-3px); border-color: var(--brand-1); }
+.sim-card span {
+  display: block; margin-top: 7px; font-size: 11.5px; line-height: 1.35;
+  color: var(--text-dim);
+}
+.sim-card:hover span { color: #fff; }
+
+@media (min-width: 560px) {
+  .ctrl-list b { flex-basis: 140px; }
+  .ctrl-list li { font-size: 14.5px; }
+}
+
+/* ---------- 详情页：FAQ ---------- */
+.faq { margin: 0; }
+.faq dt {
+  font-weight: 700; font-size: 14.5px; color: #fff;
+  margin-top: 14px; padding-left: 20px; position: relative;
+}
+.faq dt::before { content: 'Q'; position: absolute; left: 0; color: var(--brand-1); font-weight: 800; }
+.faq dd {
+  margin: 6px 0 0 20px;
+  color: var(--text-dim); font-size: 14px; line-height: 1.7;
+}
+
+/* ============================================================
+   小屏专项收紧（≤559px）
+   目标：把纵向空间尽量让给游戏本体，同时保住 ≥36px 的触控高度
+   ============================================================ */
+@media (max-width: 559px) {
+  #main { padding: 14px 12px 36px; }
+
+  .page-title { font-size: 20px; }
+  .page-sub { font-size: 14px; margin-top: 6px; }
+  .chip-row { margin: 14px 0 4px; }
+  .list-toolbar { margin: 12px 0 10px; }
+
+  /* 详情页头部压缩 */
+  .detail-top { gap: 8px; margin-bottom: 10px; }
+  .back-btn { padding: 9px 13px; font-size: 13.5px; }
+  .breadcrumb { font-size: 12px; width: 100%; }
+  .detail-head { gap: 11px; margin-bottom: 12px; }
+  .detail-icon { width: 60px; height: 60px; border-radius: 13px; }
+  .detail-h1 { font-size: 19px; }
+  .detail-sub { font-size: 12.5px; gap: 7px; margin-top: 5px; }
+
+  /* 游戏工具条：紧凑但保持可点 */
+  .stage-bar { padding: 8px 10px; gap: 7px; }
+  .stage-score { font-size: 13px; }
+  .stage-bar .btn { padding: 10px 12px; font-size: 12.5px; }
+  .stage { padding: 10px; min-height: 300px; gap: 8px; }
+  .tw-hint { font-size: 11.5px; }
+
+  /* 游戏面板吃满可用宽度 */
+  .tw-board { width: min(94vw, 340px); gap: 7px; padding: 7px; }
+  .mm-board { width: min(94vw, 344px); gap: 7px; }
+  .wm-board { width: min(94vw, 330px); gap: 9px; }
+  .tt-board { width: min(84vw, 300px); }
+
+  .rate-row { margin-bottom: 14px; gap: 8px; }
+  .seo-block { margin-top: 26px; padding-top: 18px; }
+  .seo-block h2 { font-size: 16.5px; }
+  .seo-block p { font-size: 14px; line-height: 1.7; }
+  .ctrl-list li { flex-direction: column; gap: 2px; padding: 8px 0; }
+  .ctrl-list b { flex-basis: auto; }
+  .similar-list { grid-template-columns: repeat(auto-fill, minmax(82px, 1fr)); gap: 8px; }
+
+  .site-footer { padding: 22px 12px 14px; }
+  .footer-cols { gap: 16px; }
+}

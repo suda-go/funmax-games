@@ -1,0 +1,13 @@
+# macOS
+.DS_Store
+
+# 依赖与测试产物
+node_modules/
+tests/out/
+tests/package.json
+tests/package-lock.json
+
+# 编辑器
+.vscode/
+.idea/
+*.swp

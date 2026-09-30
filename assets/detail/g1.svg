@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 240" width="240" height="240" role="img" aria-label="Solitaire">
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#1f7a4d"/><stop offset="1" stop-color="#0b4029"/>
+    </linearGradient>
+  </defs>
+  <rect width="240" height="240" rx="40" fill="url(#g)"/>
+  <circle cx="186" cy="56" r="58" fill="#fff" fill-opacity=".09"/>
+  <circle cx="44" cy="196" r="42" fill="#fff" fill-opacity=".07"/>
+  <text x="120" y="132" text-anchor="middle" font-size="86">🃏</text>
+  <text x="120" y="196" text-anchor="middle" font-family="Helvetica,Arial,sans-serif"
+        font-size="25" font-weight="700" fill="#fff" fill-opacity=".95">Solitaire</text>
+</svg>

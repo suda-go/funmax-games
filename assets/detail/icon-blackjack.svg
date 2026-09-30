@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 300" width="300" height="300" role="img" aria-label="Black Of Jack">
+  <defs>
+    <linearGradient id="felt" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#1f7a4d"/><stop offset="1" stop-color="#0d4f31"/>
+    </linearGradient>
+    <linearGradient id="gold" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#ffe27a"/><stop offset=".5" stop-color="#f5c02e"/><stop offset="1" stop-color="#c8891b"/>
+    </linearGradient>
+  </defs>
+  <rect width="300" height="300" fill="url(#felt)"/>
+  <path d="M-10 214a160 92 0 0 1 320 0" fill="none" stroke="#ffffff" stroke-opacity=".16" stroke-width="7"/>
+  <path d="M-10 234a160 92 0 0 1 320 0" fill="none" stroke="#ffffff" stroke-opacity=".1" stroke-width="4"/>
+  <g transform="rotate(-16 62 236)">
+    <rect x="26" y="196" width="72" height="98" rx="9" fill="#e5484d" stroke="#fff" stroke-width="4"/>
+    <path d="M62 224l13 14-13 14-13-14z" fill="#fff" opacity=".85"/>
+  </g>
+  <g transform="rotate(13 226 238)">
+    <rect x="192" y="198" width="72" height="98" rx="9" fill="#fdfdfd" stroke="#d8d8d8" stroke-width="2"/>
+    <text x="205" y="224" font-family="Georgia,serif" font-size="27" font-weight="700" fill="#16181d">A</text>
+    <path d="M228 240c-10 10-16 14-16 21a8.2 8.2 0 0 0 13.4 6.2c-.6 3.4-2 6-4.3 7.6h13.8c-2.3-1.6-3.7-4.2-4.3-7.6a8.2 8.2 0 0 0 13.4-6.2c0-7-6-11-16-21Z" fill="#16181d"/>
+  </g>
+  <g>
+    <circle cx="248" cy="74" r="25" fill="#d92d3c" stroke="#fff" stroke-width="5"/>
+    <circle cx="248" cy="74" r="13" fill="none" stroke="#fff" stroke-width="4" stroke-dasharray="7 6"/>
+  </g>
+  <g>
+    <circle cx="52" cy="70" r="20" fill="#1f3a93" stroke="#fff" stroke-width="4.5"/>
+    <circle cx="52" cy="70" r="10" fill="none" stroke="#fff" stroke-width="3.4" stroke-dasharray="6 5"/>
+  </g>
+  <g font-family="Georgia,'Times New Roman',serif" font-weight="700" text-anchor="middle">
+    <text x="150" y="132" font-size="54" fill="#000" fill-opacity=".32">Black</text>
+    <text x="150" y="129" font-size="54" fill="url(#gold)" stroke="#6b3d07" stroke-width="1.6">Black</text>
+    <text x="150" y="186" font-size="54" fill="#000" fill-opacity=".32">Jack</text>
+    <text x="150" y="183" font-size="54" fill="url(#gold)" stroke="#6b3d07" stroke-width="1.6">Jack</text>
+  </g>
+  <g fill="#ffe27a" opacity=".8" transform="translate(150 58)">
+    <path d="M-34 0l5 6-5 6-5-6z"/><path d="M-12 0l5 6-5 6-5-6z"/><path d="M10 0l5 6-5 6-5-6z"/><path d="M32 0l5 6-5 6-5-6z"/>
+  </g>
+</svg>

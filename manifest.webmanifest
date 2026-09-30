@@ -1,0 +1,26 @@
+{
+  "name": "FunMax Games — Free HTML5 Games",
+  "short_name": "FunMax",
+  "description": "Play free HTML5 games instantly in your browser. No download required.",
+  "start_url": "/funmax-games/",
+  "scope": "/funmax-games/",
+  "display": "standalone",
+  "background_color": "#181b62",
+  "theme_color": "#181b62",
+  "orientation": "any",
+  "categories": ["games", "entertainment"],
+  "icons": [
+    {
+      "src": "assets/icon-2048.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    },
+    {
+      "src": "assets/og-cover.svg",
+      "sizes": "1200x630",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ]
+}

@@ -1,0 +1,925 @@
+/* ============================================================
+   game-detail.css
+   应用商店风格的游戏详情页，纯移动端 vw 布局。
+   与主站 styles.css 相互独立，两套视觉不共用变量。
+   页面内无任何广告位。
+   ============================================================ */
+
+/* ---------------- reset 与主题变量 ---------------- */
+html {
+  --text-color-lv1: #000;
+  --text-color-lv2: #1a1a1a;
+  --text-color-lv3: #767676;
+  --text-color-lv4: #a3a3a3;
+  --bg-color: #fff;
+  --bg-color-des: rgba(0, 132, 255, 0.05);
+  height: 100%;
+  overflow-x: hidden;
+}
+html body {
+  background-color: rgb(255, 255, 255);
+  min-height: 100%;
+  overflow-x: hidden;
+}
+html, body {
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  width: 100%;
+  background: rgb(248, 251, 254);
+}
+body, span, p, a, ul, li, h3, h1, h2, h4, img, input, em, button {
+  margin: 0;
+  -webkit-text-size-adjust: none;
+  text-size-adjust: none;
+  padding: 0;
+}
+
+/* 暗色主题 */
+html[data-theme="dark"] {
+  --text-color-lv1: #e8e8e8;
+  --text-color-lv2: #d1d1d1;
+  --text-color-lv3: #a3a3a3;
+  --text-color-lv4: #767676;
+  --bg-color: #161824;
+  --bg-color-des: #282b34;
+}
+html[data-theme="dark"] body { background-color: rgb(22, 24, 36); }
+html[data-theme="dark"] .main .dp-banner { box-shadow: rgba(0, 0, 0, 0.4) 0 -1px; }
+html[data-theme="dark"] .main .game-description-new .game-description-new-title,
+html[data-theme="dark"] .main .game-recommend .game-recommend-title {
+  color: rgba(255, 255, 255, 0.95);
+}
+
+/* ---------------- 根容器 ---------------- */
+.main {
+  padding-bottom: 3.82653vw;
+  font-family: system-ui, Roboto, Avenir, Helvetica, Arial, sans-serif;
+  overflow-x: hidden;
+}
+.main.main-with-banner {
+  padding-bottom: calc(18.11224vw + env(safe-area-inset-bottom, 0px));
+}
+
+/* ---------------- 右上角 home 按钮 ---------------- */
+.main .home-btn {
+  position: fixed;
+  top: 26.0204vw;
+  right: 2.55102vw;
+  animation: 1.2s ease-in-out 0s infinite normal none running homeBtnPulse;
+  z-index: 20;
+}
+.main .home-btn img {
+  width: 15.3061vw;
+  height: 15.3061vw;
+  border-radius: 2.55102vw;
+  display: block;
+}
+
+/* ---------------- 底部固定品牌条 ---------------- */
+.main .dp-banner {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 14.2857vw;
+  padding: 0 4.08163vw env(safe-area-inset-bottom, 0px);
+  box-sizing: content-box;
+  background: var(--bg-color, #fff);
+  box-shadow: rgba(0, 0, 0, 0.05) 0 -1px;
+}
+.main .dp-banner-brand {
+  display: flex;
+  align-items: center;
+  gap: 2.55102vw;
+  min-width: 0;
+}
+.main .dp-banner-icon {
+  flex-shrink: 0;
+  width: 9.18367vw;
+  height: 9.18367vw;
+  border-radius: 25%;
+  overflow: hidden;
+}
+.main .dp-banner-icon img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.main .dp-banner-title {
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+  font-size: 3.82653vw;
+  font-weight: 600;
+  line-height: 5.10204vw;
+  color: var(--text-color-lv1, #000);
+}
+.main .dp-banner-btn {
+  flex-shrink: 0;
+  min-width: 18.3673vw;
+  padding: 1.78571vw 4.59184vw;
+  border-radius: 254.847vw;
+  background: rgb(52, 130, 255);
+  font-size: 3.57143vw;
+  font-weight: 500;
+  line-height: 5.10204vw;
+  color: rgb(255, 255, 255);
+  text-align: center;
+  border: none;
+  appearance: none;
+}
+
+/* ---------------- 内容块 ---------------- */
+.main .game-content {
+  padding: 13.2653vw 0 4.33673vw;
+  border-radius: 0 0 5.10204vw 5.10204vw;
+}
+
+/* 图标 + 右侧信息 */
+.main .game-detail {
+  padding: 0 3.06122vw 0 8.92857vw;
+  display: flex;
+  align-items: center;
+}
+.main .game-detail .game-icon {
+  flex-shrink: 0;
+  width: 22.9592vw;
+  height: 22.9592vw;
+  margin-right: 4.33673vw;
+  border-radius: 4.69133vw;
+  border: 0.78177vw solid rgba(0, 132, 255, 0.2);
+  overflow: hidden;
+}
+.main .game-detail .game-icon img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.main .game-detail .game-detail-right {
+  flex-grow: 1;
+  display: flex;
+  align-content: center;
+  flex-wrap: wrap;
+  overflow: hidden;
+}
+.main .game-detail .game-detail-right * {
+  width: 100%;
+  flex-shrink: 0;
+}
+.main .game-detail .game-detail-right .game-title {
+  font-weight: 500;
+  font-size: 5.10204vw;
+  line-height: 6.88776vw;
+  color: var(--text-color-lv1, #000);
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+.main .game-detail .game-detail-right .game-tag-container {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 1.27551vw;
+}
+.main .game-detail .game-detail-right .game-tag-container .game-tag-item {
+  width: fit-content;
+  margin-right: 2.55102vw;
+  margin-bottom: 1.27551vw;
+  flex-shrink: 0;
+  max-width: 51.0204vw;
+  background: rgba(0, 132, 255, 0.2);
+  border-radius: 2.04082vw;
+  padding: 0.5102vw 1.53061vw;
+  font-weight: 500;
+  font-size: 3.57143vw;
+  line-height: 4.84694vw;
+  color: rgb(0, 132, 255);
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+.main .game-detail .game-detail-right .game-developer {
+  font-weight: 500;
+  font-size: 4.08163vw;
+  line-height: 5.35714vw;
+  color: rgb(118, 118, 118);
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+/* 三段数据条 */
+.main .game-info-container {
+  display: flex;
+  justify-content: center;
+  padding: 0 2.29592vw;
+  margin-top: 4.08163vw;
+}
+.main .game-info-container .game-info-item {
+  width: 33.33%;
+  flex-shrink: 0;
+  flex-grow: 1;
+  position: relative;
+}
+.main .game-info-container .game-info-item:not(:nth-last-child(1))::after {
+  content: "";
+  width: 1px;
+  height: 7.90816vw;
+  background-color: rgb(232, 232, 232);
+  position: absolute;
+  right: -0.5px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.main .game-info-container .game-info-item .game-info-item-value {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  font-weight: 600;
+  font-size: 4.08163vw;
+  line-height: 5.35714vw;
+  color: var(--text-color-lv2, #1a1a1a);
+}
+.main .game-info-container .game-info-item .game-info-item-value img { width: 4.08163vw; }
+.main .game-info-container .game-info-item .game-info-item-value :not(:nth-last-child(1)) {
+  margin-right: 1.02041vw;
+}
+.main .game-info-container .game-info-item .game-info-item-title {
+  font-size: 3.06122vw;
+  line-height: 4.08163vw;
+  color: rgb(163, 163, 163);
+  margin-top: 0.76531vw;
+  text-align: center;
+}
+
+/* 描述（浅蓝卡片版） */
+.main .game-description {
+  width: 87.7551vw;
+  padding: 3.57143vw 3.06122vw;
+  margin: 3.82653vw auto 0;
+  font-size: 3.57143vw;
+  line-height: 4.84694vw;
+  color: var(--text-color-lv2, #1a1a1a);
+  background: var(--bg-color-des, rgba(0, 132, 255, 0.05));
+  border-radius: 3.06122vw;
+  white-space: pre-wrap;
+  /* 保持默认 content-box：width 87.7551vw 不含左右 padding，
+     总宽 = 342.25 + 11.94×2 = 366px。改成 border-box 会缩到 342px。 */
+}
+
+/* 主 CTA */
+.main .game-play-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 12.2449vw;
+  width: 93.8775vw;
+  margin: 5.10204vw auto auto;
+  border-radius: 10.2041vw;
+  background: rgb(13, 132, 255);
+  font-weight: 500;
+  font-size: 4.33673vw;
+  color: rgb(255, 255, 255);
+  appearance: none;
+  border: none;
+  transition: transform 0.3s ease-in-out, background 0.3s ease-in-out;
+  position: relative;
+  overflow: hidden;
+}
+.main .game-play-btn:active {
+  transform: scale(0.95);
+  background: rgb(10, 103, 199);
+}
+.main .game-play-btn.breathing-effect {
+  animation: 1.5s ease-in-out 0s infinite normal none running breathing;
+}
+.main .game-play-btn .loading-btn {
+  height: 5.10204vw;
+  width: 5.10204vw;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  fill: currentColor;
+  font-size: inherit;
+  animation: 2s linear 0s infinite normal none running rotating;
+  margin-right: 1.53061vw;
+  margin-bottom: 0.5102vw;
+}
+.main .game-play-btn .loading-svg { height: 5.10204vw; width: 5.10204vw; }
+.main .game-play-btn .play-icon {
+  width: 5.38776vw;
+  height: 5.38776vw;
+  margin-right: 2.55102vw;
+  flex-shrink: 0;
+}
+.main .game-play-btn-loading { background: rgb(59, 150, 245); }
+.main .auto-loading-btn { position: relative; overflow: hidden; }
+.main .auto-loading-btn .auto-loading-inner {
+  background: rgb(151, 202, 255);
+  color: rgb(13, 132, 255);
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 4.08163vw;
+  clip-path: inset(0 100% 0 0);
+}
+
+/* 截图横滑 */
+.main .game-screenshot-container {
+  margin: 3.82653vw auto auto;
+  overflow-y: scroll;
+}
+.main .game-screenshot-container .game-screenshot-wrapper { display: flex; }
+.main .game-screenshot-container .game-screenshot-item {
+  flex-shrink: 0;
+  height: 51.0204vw;
+  width: 28.5714vw;
+}
+.main .game-screenshot-container .game-screenshot-item:nth-child(1) { padding-left: 3.82653vw; }
+.main .game-screenshot-container .game-screenshot-item:nth-last-child(1) { padding-right: 3.82653vw; }
+.main .game-screenshot-container .game-screenshot-item:not(:nth-last-child(1)) { margin-right: 3.06122vw; }
+.main .game-screenshot-container .game-screenshot-item img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border-radius: 3.06122vw;
+}
+.main .game-screenshot-container .game-large-screenshot-item {
+  flex-shrink: 0;
+  width: 93.1122vw;
+}
+
+/* ---------------- 游戏墙弹窗 ---------------- */
+.main .game-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 10;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.main .game-modal .game-modal-content {
+  background: linear-gradient(360deg, rgb(0, 70, 180) 40.68%, rgb(0, 86, 255) 96.26%);
+  display: grid;
+  gap: 2.55102vw;
+  padding: 4.08163vw;
+  border-radius: 3.06122vw;
+}
+.main .game-modal .game-modal-style2 {
+  width: 82.6531vw;
+  height: 104.082vw;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(5, 1fr);
+}
+.main .game-modal .game-modal-style2 .game-modal-item:nth-child(1)  { grid-area: 1 / 1 / 3 / 3; }
+.main .game-modal .game-modal-style2 .game-modal-item:nth-child(2)  { grid-area: 1 / 3 / 2 / 4; }
+.main .game-modal .game-modal-style2 .game-modal-item:nth-child(3)  { grid-area: 1 / 4 / 2 / 5; }
+.main .game-modal .game-modal-style2 .game-modal-item:nth-child(4)  { grid-area: 2 / 3 / 3 / 4; }
+.main .game-modal .game-modal-style2 .game-modal-item:nth-child(5)  { grid-area: 2 / 4 / 3 / 5; }
+.main .game-modal .game-modal-style2 .game-modal-item:nth-child(6)  { grid-area: 3 / 1 / 4 / 2; }
+.main .game-modal .game-modal-style2 .game-modal-item:nth-child(7)  { grid-area: 3 / 2 / 4 / 3; }
+.main .game-modal .game-modal-style2 .game-modal-item:nth-child(8)  { grid-area: 3 / 3 / 5 / 5; }
+.main .game-modal .game-modal-style2 .game-modal-item:nth-child(9)  { grid-area: 4 / 1 / 5 / 2; }
+.main .game-modal .game-modal-style2 .game-modal-item:nth-child(10) { grid-area: 4 / 2 / 5 / 3; }
+.main .game-modal .game-modal-style2 .game-modal-item:nth-child(11) { grid-area: 5 / 1 / 6 / 2; }
+.main .game-modal .game-modal-style2 .game-modal-item:nth-child(12) { grid-area: 5 / 2 / 6 / 3; }
+.main .game-modal .game-modal-style2 .game-modal-item:nth-child(13) { grid-area: 5 / 3 / 6 / 4; }
+.main .game-modal .game-modal-style2 .game-modal-item:nth-child(14) { grid-area: 5 / 4 / 6 / 5; }
+.main .game-modal .game-modal-style3 {
+  width: 88.7755vw;
+  height: 69.898vw;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: repeat(4, 1fr);
+}
+.main .game-modal .game-modal-style4 {
+  width: 82.6531vw;
+  height: 104.082vw;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(5, 1fr);
+}
+.main .game-modal .game-modal-item {
+  width: 100%;
+  height: 100%;
+  background-color: rgb(255, 255, 255);
+  border-radius: 3.06122vw;
+  overflow: hidden;
+}
+.main .game-modal .game-modal-item img { width: 100%; height: 100%; object-fit: cover; }
+.main .game-modal .game-modal-close {
+  margin-top: 4.59184vw;
+  width: 6.63265vw;
+  height: 6.63265vw;
+}
+
+/* ---------------- sty=2 的大标题布局变体 ---------------- */
+.main .game-content-new .game-detail {
+  width: 87.7551vw;
+  padding: 0 6.12245vw;
+}
+.main .game-content-new .game-detail-right .game-title {
+  font-weight: 500;
+  font-size: 5.61224vw;
+}
+.main .game-content-new .game-detail-right .game-tag-container { margin-top: 3.06122vw; }
+.main .game-content-new .game-detail-right .game-developer { display: none; }
+.main .game-content-new .game-play-btn { width: 87.7551vw; }
+
+/* ---------------- 可展开描述 ---------------- */
+.main .game-description-new {
+  margin: 4.59184vw 3.57143vw;
+  background-color: rgba(0, 133, 255, 0.03);
+  border-radius: 3.06122vw;
+  padding: 3.06122vw;
+}
+.main .game-description-new .game-description-new-title {
+  font-weight: 600;
+  font-size: 4.08163vw;
+  margin-bottom: 1.27551vw;
+}
+.main .game-description-new .game-description-new-content {
+  font-size: 3.57143vw;
+  color: rgb(118, 118, 118);
+  font-weight: 400;
+  line-height: 1.4;
+  transition: 0.3s;
+}
+.main .game-description-new .game-description-new-content.collapsed {
+  position: relative;
+  max-height: 4.2em;
+  overflow: hidden;
+}
+.main .game-description-new .game-description-new-content.collapsed.has-overflow::after {
+  content: ".......expend...";
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  background: rgb(247, 251, 255);
+  padding-left: 1.27551vw;
+  color: rgb(118, 118, 118);
+  font-weight: 400;
+}
+.main .game-description-new .game-description-new-expend-overlay {
+  color: rgb(0, 133, 255);
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5102vw;
+  font-size: 3.57143vw;
+  font-weight: 500;
+  transition: color 0.3s;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  background: rgb(247, 251, 255);
+  padding-left: 1.02041vw;
+  z-index: 10;
+}
+.main .game-description-new .game-description-new-expend-icon {
+  margin-left: 0.5102vw;
+  margin-right: 1px;
+}
+.main .game-description-new .game-description-new-toggle {
+  background: none;
+  border: none;
+  color: rgb(0, 132, 255);
+  font-size: 3.57143vw;
+  font-weight: 500;
+  cursor: pointer;
+  padding: 0;
+  margin: 0 0 0 1.02041vw;
+  text-align: left;
+  display: inline;
+  transition: color 0.3s;
+}
+.main .game-description-new .game-description-new-toggle:hover { color: rgb(0, 102, 204); }
+.main .game-description-new .game-description-new-toggle:active { color: rgb(0, 68, 153); }
+
+/* ---------------- 推荐 3×2 ---------------- */
+.main .game-recommend { padding: 0 3.57143vw; }
+.main .game-recommend .game-recommend-title {
+  font-weight: 600;
+  font-size: 4.08163vw;
+  margin-bottom: 3.06122vw;
+}
+.main .game-recommend .game-recommend-list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  gap: 3.06122vw;
+}
+.main .game-recommend .game-recommend-list .game-modal-item {
+  width: 28.875vw;
+  height: 28.875vw;
+  border-radius: 4.08163vw;
+  overflow: hidden;
+}
+.main .game-recommend .game-recommend-list .game-modal-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* ---------------- 浮动播放条 ---------------- */
+.main .floating-play-bar {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: calc(4.08163vw + env(safe-area-inset-bottom, 0px));
+  z-index: 999;
+  display: flex;
+  justify-content: center;
+  pointer-events: none;
+  visibility: hidden;
+  opacity: 0;
+  transform: translateY(calc(100% + 4.08163vw));
+  transition: transform 0.25s ease-out, opacity 0.25s ease-out, visibility 0.25s;
+}
+.main .floating-play-bar.floating-play-bar-above-banner {
+  bottom: calc(18.36735vw + env(safe-area-inset-bottom, 0px));
+}
+.main .floating-play-bar.floating-play-bar-visible {
+  visibility: visible;
+  opacity: 1;
+  transform: translateY(0);
+}
+.main .floating-play-bar .floating-play-btn {
+  pointer-events: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 85.7143vw;
+  height: 12.7551vw;
+  box-sizing: border-box;
+  border: none;
+  appearance: none;
+  border-radius: 254.847vw;
+  background: rgb(52, 130, 255);
+  box-shadow: rgba(52, 130, 255, 0.2) 0 1.02041vw 20.4082vw;
+  font-weight: 500;
+  font-size: 4.33673vw;
+  color: rgb(255, 255, 255);
+  transition: transform 0.3s ease-in-out, background 0.3s ease-in-out;
+}
+.main .floating-play-bar .floating-play-btn:active {
+  transform: scale(0.95);
+  background: rgb(42, 108, 214);
+}
+.main .floating-play-bar .floating-play-icon {
+  width: 5.38776vw;
+  height: 5.38776vw;
+  margin-right: 2.55102vw;
+  flex-shrink: 0;
+}
+
+/* ---------------- 动画（照抄原站 keyframes） ---------------- */
+@keyframes homeBtnPulse {
+  0%   { transform: scale(1); }
+  50%  { transform: scale(1.2); }
+  100% { transform: scale(1); }
+}
+@keyframes rotating {
+  0%   { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+@keyframes breathing {
+  0%, 100% { transform: scale(0.95); }
+  50%      { transform: scale(1.05); }
+}
+
+[hidden] { display: none !important; }
+
+/* 无障碍兜底：系统开启「减少动态效果」时停掉
+   home 按钮 pulse、CTA 呼吸与 spinner 旋转，静态视觉保持不变 */
+@media (prefers-reduced-motion: reduce) {
+  .main .home-btn,
+  .main .game-play-btn.breathing-effect,
+  .main .game-play-btn .loading-btn {
+    animation: none !important;
+  }
+  .main .floating-play-bar { transition: opacity .2s ease-out, visibility .2s; }
+}
+
+/* ============================================================
+   App 风格顶部导航栏（默认关闭，?topnav=1 开启）
+   高度取 13.2653vw —— 与 .game-content 的 padding-top 相同，
+   正好落在顶部留白里，不挤压下方任何元素。
+   行为：初始透明，滚动后变实色 + 标题淡入。
+   ============================================================ */
+.main .detail-nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 50;
+  height: 13.2653vw;
+  display: flex;
+  align-items: center;
+  gap: 1.02041vw;
+  padding: 0 2.04082vw;
+  background: transparent;
+  color: var(--text-color-lv1, #000);
+  transition: background 0.22s ease, box-shadow 0.22s ease;
+}
+/* 两阶段：
+   .is-scrolled  一开始滚动就落实背景，否则内容会从透明导航下穿过
+   .is-titled    滚过游戏图标后标题才淡入（对齐 Google Play 的行为） */
+.main .detail-nav.is-scrolled {
+  background: var(--bg-color, #fff);
+  box-shadow: rgba(0, 0, 0, 0.08) 0 1px 6px;
+}
+
+.main .detail-nav .nav-btn {
+  flex: 0 0 auto;
+  width: 11.2245vw;
+  height: 11.2245vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  background: none;
+  border-radius: 50%;
+  color: inherit;
+  appearance: none;
+  transition: background 0.16s ease;
+}
+.main .detail-nav .nav-btn svg {
+  width: 6.15vw;
+  height: 6.15vw;
+  display: block;
+}
+.main .detail-nav .nav-btn:active { background: rgba(0, 0, 0, 0.08); }
+html[data-theme="dark"] .main .detail-nav .nav-btn:active { background: rgba(255, 255, 255, 0.14); }
+
+/* 标题：初始隐藏，滚过图标后淡入 */
+.main .detail-nav .nav-title {
+  flex: 1 1 auto;
+  min-width: 0;
+  font-size: 4.08163vw;
+  font-weight: 600;
+  line-height: 5.35714vw;
+  color: var(--text-color-lv1, #000);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  opacity: 0;
+  transform: translateY(0.5102vw);
+  transition: opacity 0.2s ease, transform 0.2s ease;
+  pointer-events: none;
+}
+.main .detail-nav.is-titled .nav-title {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.main .detail-nav .nav-actions {
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 0.5102vw;
+}
+
+/* 更多菜单 */
+.main .detail-nav .nav-menu {
+  position: absolute;
+  top: 12.7551vw;
+  right: 2.55102vw;
+  min-width: 42.8571vw;
+  padding: 1.53061vw 0;
+  background: var(--bg-color, #fff);
+  border-radius: 3.06122vw;
+  box-shadow: rgba(0, 0, 0, 0.16) 0 2px 12px;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+.main .detail-nav .nav-menu-item {
+  border: none;
+  background: none;
+  text-align: left;
+  padding: 3.06122vw 4.08163vw;
+  font-size: 3.57143vw;
+  line-height: 4.84694vw;
+  color: var(--text-color-lv2, #1a1a1a);
+  white-space: nowrap;
+  appearance: none;
+}
+.main .detail-nav .nav-menu-item:active { background: rgba(0, 132, 255, 0.1); }
+
+/* 轻提示条 */
+.main .nav-toast {
+  position: fixed;
+  left: 50%;
+  top: 16.3265vw;
+  transform: translateX(-50%);
+  z-index: 200;
+  max-width: 85vw;
+  padding: 2.04082vw 4.08163vw;
+  border-radius: 254.847vw;
+  background: rgba(26, 26, 26, 0.9);
+  color: #fff;
+  font-size: 3.31633vw;
+  line-height: 4.59184vw;
+  white-space: nowrap;
+  animation: navToastIn 0.18s ease-out;
+}
+@keyframes navToastIn {
+  from { opacity: 0; transform: translateX(-50%) translateY(-1.5vw); }
+  to   { opacity: 1; transform: translateX(-50%) translateY(0); }
+}
+
+/* 顶栏可见时才把 home 按钮下移，避免和右侧图标组重叠。
+   必须带 :not([hidden]) —— 顶栏默认隐藏但节点仍在 DOM 里，
+   否则 home 按钮会被无条件下移，偏离原站的 26.02vw。 */
+.main .detail-nav:not([hidden]) ~ .home-btn { top: 31.1224vw; }
+
+/* ============================================================
+   游戏分类导航
+     box-header 标题（左侧竖条 + 底部点线）
+     .list 3 列缩略图网格
+     .name .text::after 自动补 " Games"，最后一项补单数 " Game"
+     标签 pill 行 + 随机游戏按钮
+   ============================================================ */
+.main .game-category {
+  width: 100%;
+  overflow: hidden;
+  padding: 0 3.57143vw;
+  margin-top: 6.12245vw;
+  /* 底部留白：尾部同时有两个 fixed 元素压在上面 ——
+       品牌条 bottom:0 高 14.2857vw
+       浮动播放条 bottom:18.36735vw 高 12.7551vw（顶边落在 31.12vw 处）
+     .main 自带的 padding-bottom 只有 18.11vw，不足以让 Random 按钮避开浮动条，
+     这里补到总留白 > 31.12vw。 */
+  margin-bottom: 16.3265vw;
+  box-sizing: border-box;
+}
+
+/* ---- 标题 ---- */
+.main .game-category .box-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 9.18367vw;
+  border-bottom: 1px dotted rgba(0, 132, 255, 0.32);
+  margin-bottom: 3.06122vw;
+}
+.main .game-category .box-header h2 {
+  position: relative;
+  font-size: 4.08163vw;
+  font-weight: 600;
+  line-height: 5.35714vw;
+  color: var(--text-color-lv1, #000);
+  /* 竖条用固定 4px 而非 vw：border-width 会被浏览器取整，
+     1.02041vw 在 390px 下算出 3.98px 会渲染成 3px */
+  border-left: solid 4px #0084ff;
+  text-indent: 2.29592vw;
+  text-transform: capitalize;
+}
+.main .game-category .box-header-more {
+  font-size: 3.31633vw;
+  font-weight: 500;
+  color: #0084ff;
+  text-decoration: none;
+  white-space: nowrap;
+  padding: 1.53061vw 0 1.53061vw 2.04082vw;  /* 加大触控区 */
+}
+
+/* ---- 3 列缩略图网格 ---- */
+.main .game-category .list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 3.06122vw;
+}
+.main .game-category .list a {
+  display: block;
+  font-size: 3.06122vw;
+  color: var(--text-color-lv2, #1a1a1a);
+  text-decoration: none;
+  border-radius: 2.55102vw;
+  box-shadow: rgba(0, 0, 0, 0.12) -0.25510vw 0.25510vw 1.53061vw 0;
+  padding: 0.76531vw;
+  background: var(--bg-color, #fff);
+  transition: transform 0.16s ease, color 0.16s ease;
+}
+.main .game-category .list a:active {
+  transform: scale(0.96);
+  color: #0084ff;
+}
+.main .game-category .list .item {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+  border-radius: 2.55102vw;
+}
+.main .game-category .list .item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 2.55102vw;
+  display: block;
+}
+.main .game-category .list .name {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  padding: 1.27551vw 0 0.5102vw;
+}
+.main .game-category .list .name .text {
+  text-align: center;
+  line-height: 4.08163vw;
+  max-height: 4.08163vw;
+  overflow: hidden;
+  font-weight: 500;
+}
+/* 用伪元素自动补后缀，省掉每条数据里重复写 Games */
+.main .game-category .list .name .text::after { content: ' Games'; }
+.main .game-category .list a:last-child .name .text::after { content: ' Game'; }
+
+/* ---- 标签 pill ---- */
+.main .game-category .tag-panel { margin-top: 5.10204vw; }
+.main .game-category .tag-panel-title {
+  font-size: 3.82653vw;
+  font-weight: 600;
+  line-height: 5.10204vw;
+  color: var(--text-color-lv1, #000);
+  margin-bottom: 2.29592vw;
+}
+.main .game-category .nav-pills-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2.04082vw;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.main .game-category .nav-pills-tags a {
+  display: inline-block;
+  padding: 1.78571vw 3.06122vw;
+  border-radius: 254.847vw;
+  background: rgba(0, 132, 255, 0.08);
+  border: 1px solid rgba(0, 132, 255, 0.24);
+  font-size: 3.31633vw;
+  line-height: 4.34vw;
+  font-weight: 500;
+  color: #0084ff;
+  text-decoration: none;
+  white-space: nowrap;
+}
+.main .game-category .nav-pills-tags a:active {
+  background: rgba(0, 132, 255, 0.2);
+}
+
+/* ---- Random Game 按钮 ---- */
+.main .game-category .random-game-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2.04082vw;
+  height: 11.7347vw;
+  margin-top: 5.10204vw;
+  border-radius: 254.847vw;
+  background: rgba(0, 132, 255, 0.08);
+  border: 1px dashed rgba(0, 132, 255, 0.5);
+  color: #0084ff;
+  font-size: 3.82653vw;
+  font-weight: 600;
+  text-decoration: none;
+  transition: background 0.18s ease, transform 0.18s ease;
+}
+.main .game-category .random-game-btn svg {
+  width: 5.10204vw;
+  height: 5.10204vw;
+  flex: 0 0 auto;
+}
+.main .game-category .random-game-btn:active {
+  background: rgba(0, 132, 255, 0.18);
+  transform: scale(0.97);
+}
+
+/* ---- 暗色主题 ---- */
+html[data-theme="dark"] .main .game-category .list a {
+  background: #1f2230;
+  box-shadow: rgba(0, 0, 0, 0.5) -0.25510vw 0.25510vw 1.53061vw 0;
+  color: var(--text-color-lv2, #d1d1d1);
+}
+html[data-theme="dark"] .main .game-category .box-header {
+  border-bottom-color: rgba(255, 255, 255, 0.18);
+}
+html[data-theme="dark"] .main .game-category .nav-pills-tags a {
+  background: rgba(0, 132, 255, 0.16);
+  border-color: rgba(0, 132, 255, 0.4);
+  color: #4aa8ff;
+}
+html[data-theme="dark"] .main .game-category .random-game-btn {
+  background: rgba(0, 132, 255, 0.14);
+  color: #4aa8ff;
+}

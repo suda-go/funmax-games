@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<!-- 允许缩放（不写 user-scalable=no / maximum-scale=1.0），满足 WCAG 1.4.4 -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0">
+<meta name="robots" content="index,follow">
+<meta name="theme-color" content="#181b62">
+
+<!-- 每页独立 title / description -->
+<title>FunMax Games - Play 6 Free HTML5 Games Online, No Download</title>
+<meta name="description" content="FunMax Games offers free HTML5 games you can play instantly in the browser: 2048, Snake, Breakout, Memory Match, Whack-a-Mole and Tic-Tac-Toe. No download, no install, works on mobile and desktop.">
+<meta name="keywords" content="free online games,html5 games,play games unblocked,browser games,no download games">
+
+<!-- canonical -->
+<link rel="canonical" href="https://suda-go.github.io/funmax-games/">
+
+<!-- OG / Twitter 卡片，保证社交平台分享有预览 -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="FunMax Games">
+<meta property="og:locale" content="en_US">
+<meta property="og:url" content="https://suda-go.github.io/funmax-games/">
+<meta property="og:title" content="FunMax Games - Play 6 Free HTML5 Games Online">
+<meta property="og:description" content="Play free HTML5 games instantly in your browser. No download required.">
+<meta property="og:image" content="https://suda-go.github.io/funmax-games/assets/og-cover.svg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="FunMax Games - Play 6 Free HTML5 Games Online">
+<meta name="twitter:description" content="Play free HTML5 games instantly in your browser. No download required.">
+<meta name="twitter:image" content="https://suda-go.github.io/funmax-games/assets/og-cover.svg">
+
+<!-- PWA -->
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="assets/icon-2048.svg" type="image/svg+xml">
+<link rel="stylesheet" href="styles.css">
+
+<!-- 结构化数据 Organization + Breadcrumb + ItemList，供搜索引擎生成富摘要 -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "FunMax Games",
+  "url": "https://suda-go.github.io/funmax-games",
+  "logo": "https://suda-go.github.io/funmax-games/assets/og-cover.svg",
+  "contactPoint": [{
+    "@type": "ContactPoint",
+    "contactType": "customer service",
+    "url": "https://suda-go.github.io/funmax-games/#/support"
+  }]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [{
+    "@type": "ListItem",
+    "position": 1,
+    "item": { "@id": "https://suda-go.github.io/funmax-games", "name": "Games" }
+  }]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  "name": "Free HTML5 Games on FunMax",
+  "numberOfItems": 6,
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "url": "https://suda-go.github.io/funmax-games/#/game/2048", "name": "2048 Number Merge" },
+    { "@type": "ListItem", "position": 2, "url": "https://suda-go.github.io/funmax-games/#/game/snake", "name": "Snake Classic" },
+    { "@type": "ListItem", "position": 3, "url": "https://suda-go.github.io/funmax-games/#/game/breakout", "name": "Breakout Brick Smash" },
+    { "@type": "ListItem", "position": 4, "url": "https://suda-go.github.io/funmax-games/#/game/memory", "name": "Memory Match" },
+    { "@type": "ListItem", "position": 5, "url": "https://suda-go.github.io/funmax-games/#/game/whack", "name": "Whack-a-Mole" },
+    { "@type": "ListItem", "position": 6, "url": "https://suda-go.github.io/funmax-games/#/game/tictactoe", "name": "Tic-Tac-Toe vs AI" }
+  ]
+}
+</script>
+</head>
+<body>
+
+<a class="skip-link" href="#main">Skip to main content</a>
+
+<!-- ============ 头部：logo + 导航 + 搜索 ============ -->
+<header class="common-header">
+  <div class="header-inner">
+    <a href="#/" class="home-link" aria-label="FunMax Games home">
+      <svg class="home-icon" width="40" height="40" viewBox="0 0 40 40" fill="none" aria-hidden="true">
+        <path d="M36.75 19.8164L21.1328 4.19922C20.5078 3.57422 19.4922 3.57422 18.8672 4.19922L3.25002 19.8164C2.78127 20.2852 3.1133 21.0898 3.77736 21.0898H7.50002V32.0977C7.50002 34.2539 9.25002 36.0039 11.4063 36.0039H15.336C16.1992 36.0039 16.8985 35.3047 16.8985 34.4414V26.6562C16.8985 26.2266 17.25 25.875 17.6797 25.875H22.336C22.7656 25.875 23.1172 26.2266 23.1172 26.6562V34.4414C23.1172 35.3047 23.8164 36.0039 24.6797 36.0039H28.6016C30.7578 36.0039 32.5078 34.2539 32.5078 32.0977V21.0938H36.2227C36.8867 21.0938 37.2227 20.2891 36.75 19.8164Z"
+              fill="url(#logoGrad)" stroke="#fff" stroke-width="2"/>
+        <defs>
+          <linearGradient id="logoGrad" x1="0" y1="15.2" x2="17.8" y2="41.3" gradientUnits="userSpaceOnUse">
+            <stop stop-color="#4AB2FF"/><stop offset="1" stop-color="#247BFF"/>
+          </linearGradient>
+        </defs>
+      </svg>
+      <span class="home-title">FunMax</span>
+    </a>
+
+    <!-- 全局导航 -->
+    <nav class="main-nav" aria-label="Primary">
+      <a href="#/" data-nav="all">All</a>
+      <a href="#/t/new" data-nav="new">New</a>
+      <a href="#/t/hot" data-nav="hot">Hot</a>
+      <a href="#/t/best" data-nav="best">Best</a>
+      <a href="#/favorites" data-nav="favorites">My List</a>
+    </nav>
+
+    <!-- 搜索 -->
+    <form class="search-box" role="search" onsubmit="return false;">
+      <label class="visually-hidden" for="q">Search games</label>
+      <input id="q" type="search" placeholder="Search games…" autocomplete="off">
+      <button type="button" class="search-clear" aria-label="Clear search" hidden>&times;</button>
+    </form>
+  </div>
+</header>
+
+<main id="main">
+
+  <!-- ==================== 首页视图 ==================== -->
+  <section id="view-home" class="view">
+    <h1 class="page-title">Free Online Games — Play Instantly, No Download</h1>
+    <p class="page-sub">Six handcrafted HTML5 games that run entirely in your browser. Works on phone, tablet and desktop.</p>
+
+    <!-- 分类 + 标签双层筛选 -->
+    <nav class="chip-row" aria-label="Filter by category">
+      <button class="chip is-active" data-cat="all">All Games <span class="chip-n">6</span></button>
+      <button class="chip" data-cat="puzzle">Puzzle <span class="chip-n">3</span></button>
+      <button class="chip" data-cat="arcade">Arcade <span class="chip-n">3</span></button>
+      <button class="chip" data-cat="brain">Brain <span class="chip-n">2</span></button>
+      <button class="chip" data-cat="reflex">Reflex <span class="chip-n">2</span></button>
+      <button class="chip" data-cat="2p">2 Player <span class="chip-n">1</span></button>
+    </nav>
+
+    <div class="list-toolbar">
+      <h2 class="section-title" id="list-heading">All Games</h2>
+      <label class="sort-wrap">
+        <span class="visually-hidden">Sort games</span>
+        <select id="sort">
+          <option value="default">Featured</option>
+          <option value="rating">Top rated</option>
+          <option value="plays">Most played</option>
+          <option value="az">A → Z</option>
+        </select>
+      </label>
+    </div>
+
+    <!--
+      关键：卡片在静态 HTML 里就带齐 href + src + alt + 可见游戏名。
+      若只吐骨架、数据靠客户端 JS 补，爬虫拿到的会是一张白页。
+    -->
+    <ul class="game-list" id="game-list" aria-labelledby="list-heading">
+
+      <li class="game-item" data-id="2048" data-cat="puzzle brain" data-rating="92" data-plays="18420" data-new="0">
+        <article class="common-game-item">
+          <a class="common-game-link" href="#/game/2048">
+            <img class="common-game-icon" src="assets/icon-2048.svg" width="240" height="240"
+                 alt="2048 Number Merge game icon — slide numbered tiles to combine them">
+            <span class="badge badge-hot">HOT</span>
+            <span class="game-meta">
+              <span class="game-name">2048 Number Merge</span>
+              <span class="game-tag">Puzzle · 4.6★</span>
+            </span>
+          </a>
+          <button class="fav-btn" data-fav="2048" aria-label="Add 2048 Number Merge to My List" aria-pressed="false">♥</button>
+        </article>
+      </li>
+
+      <li class="game-item is-wide" data-id="snake" data-cat="arcade reflex" data-rating="88" data-plays="24106" data-new="0">
+        <article class="common-game-item">
+          <a class="common-game-link" href="#/game/snake">
+            <img class="common-game-icon" src="assets/icon-snake.svg" width="360" height="360"
+                 alt="Snake Classic game icon — grow the snake by eating food without hitting walls">
+            <span class="badge badge-hot">HOT</span>
+            <span class="game-meta">
+              <span class="game-name">Snake Classic</span>
+              <span class="game-tag">Arcade · 4.4★</span>
+            </span>
+          </a>
+          <button class="fav-btn" data-fav="snake" aria-label="Add Snake Classic to My List" aria-pressed="false">♥</button>
+        </article>
+      </li>
+
+      <li class="game-item" data-id="breakout" data-cat="arcade reflex" data-rating="85" data-plays="12980" data-new="0">
+        <article class="common-game-item">
+          <a class="common-game-link" href="#/game/breakout">
+            <img class="common-game-icon" src="assets/icon-breakout.svg" width="240" height="240"
+                 alt="Breakout Brick Smash game icon — bounce the ball to clear all bricks">
+            <span class="game-meta">
+              <span class="game-name">Breakout Brick Smash</span>
+              <span class="game-tag">Arcade · 4.3★</span>
+            </span>
+          </a>
+          <button class="fav-btn" data-fav="breakout" aria-label="Add Breakout Brick Smash to My List" aria-pressed="false">♥</button>
+        </article>
+      </li>
+
+      <li class="game-item" data-id="memory" data-cat="puzzle brain" data-rating="79" data-plays="9340" data-new="1">
+        <article class="common-game-item">
+          <a class="common-game-link" href="#/game/memory">
+            <img class="common-game-icon" src="assets/icon-memory.svg" width="240" height="240"
+                 alt="Memory Match game icon — flip cards to find matching pairs">
+            <span class="badge badge-new">NEW</span>
+            <span class="game-meta">
+              <span class="game-name">Memory Match</span>
+              <span class="game-tag">Puzzle · 4.0★</span>
+            </span>
+          </a>
+          <button class="fav-btn" data-fav="memory" aria-label="Add Memory Match to My List" aria-pressed="false">♥</button>
+        </article>
+      </li>
+
+      <li class="game-item" data-id="whack" data-cat="arcade reflex" data-rating="81" data-plays="15220" data-new="1">
+        <article class="common-game-item">
+          <a class="common-game-link" href="#/game/whack">
+            <img class="common-game-icon" src="assets/icon-whack.svg" width="240" height="240"
+                 alt="Whack-a-Mole game icon — tap the moles as they pop out of their holes">
+            <span class="badge badge-new">NEW</span>
+            <span class="game-meta">
+              <span class="game-name">Whack-a-Mole</span>
+              <span class="game-tag">Arcade · 4.1★</span>
+            </span>
+          </a>
+          <button class="fav-btn" data-fav="whack" aria-label="Add Whack-a-Mole to My List" aria-pressed="false">♥</button>
+        </article>
+      </li>
+
+      <li class="game-item" data-id="tictactoe" data-cat="puzzle 2p" data-rating="76" data-plays="7115" data-new="0">
+        <article class="common-game-item">
+          <a class="common-game-link" href="#/game/tictactoe">
+            <img class="common-game-icon" src="assets/icon-tictactoe.svg" width="240" height="240"
+                 alt="Tic-Tac-Toe game icon — get three in a row against the computer or a friend">
+            <span class="game-meta">
+              <span class="game-name">Tic-Tac-Toe vs AI</span>
+              <span class="game-tag">Puzzle · 3.8★</span>
+            </span>
+          </a>
+          <button class="fav-btn" data-fav="tictactoe" aria-label="Add Tic-Tac-Toe vs AI to My List" aria-pressed="false">♥</button>
+        </article>
+      </li>
+
+    </ul>
+
+    <p class="empty-state" id="empty-state" hidden>No games match your search. <button class="link-btn" id="reset-filters">Show all games</button></p>
+
+    <!-- 首页 SEO 文案区，段落内嵌分类与游戏内链 -->
+    <section class="seo-block">
+      <h2>Why Play on FunMax Games?</h2>
+      <p>
+        Every game on FunMax is built as a self-contained HTML5 app, so there is nothing to download and nothing to install.
+        Open a game and it starts in under a second, whether you are on an Android phone, an iPhone, a tablet or a desktop browser.
+        All six titles are free, and none of them require an account.
+      </p>
+      <p>
+        Prefer something slow and thoughtful? Start with our <a href="#/t/puzzle">puzzle games</a> —
+        <a href="#/game/2048">2048 Number Merge</a> rewards planning several moves ahead, and
+        <a href="#/game/memory">Memory Match</a> trains short-term recall.
+        Want something faster? The <a href="#/t/arcade">arcade section</a> has
+        <a href="#/game/snake">Snake Classic</a>, <a href="#/game/breakout">Breakout Brick Smash</a>
+        and <a href="#/game/whack">Whack-a-Mole</a>, all of which are about reflexes rather than strategy.
+        Playing with someone else? <a href="#/game/tictactoe">Tic-Tac-Toe</a> has both a two-player mode and an unbeatable AI opponent.
+      </p>
+
+      <h2>What Makes These Games Different</h2>
+      <p>
+        No interstitial ads between you and the game. No forced portrait orientation — every game adapts to landscape
+        when your screen is wider than it is tall. Keyboard controls work on desktop, touch and swipe work on mobile,
+        and your high scores and favourites are stored locally on your own device rather than on a server.
+      </p>
+    </section>
+  </section>
+
+  <!-- ==================== 详情视图（JS 渲染） ==================== -->
+  <section id="view-detail" class="view" hidden></section>
+
+  <!-- ==================== 支持页视图 ==================== -->
+  <section id="view-support" class="view" hidden>
+    <h1 class="page-title">Support</h1>
+    <div class="seo-block">
+      <h2>Contact</h2>
+      <p>Found a bug, or want a game added? Open an issue on <a href="https://github.com/suda-go/funmax-games/issues">GitHub</a>.</p>
+      <h2>Do I need to install anything?</h2>
+      <p>No. Every game runs directly in your browser using HTML5 Canvas and plain JavaScript.</p>
+      <h2>Where are my scores saved?</h2>
+      <p>In your browser's local storage, on your device only. Clearing site data will reset them.</p>
+    </div>
+  </section>
+
+</main>
+
+<!-- footer：信任信号 + 内链出口 -->
+<footer class="site-footer">
+  <div class="footer-cols">
+    <div class="footer-col">
+      <h2>Categories</h2>
+      <ul>
+        <li><a href="#/t/puzzle">Puzzle Games</a></li>
+        <li><a href="#/t/arcade">Arcade Games</a></li>
+        <li><a href="#/t/brain">Brain Games</a></li>
+        <li><a href="#/t/reflex">Reflex Games</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h2>All Games</h2>
+      <ul>
+        <li><a href="#/game/2048">2048 Number Merge</a></li>
+        <li><a href="#/game/snake">Snake Classic</a></li>
+        <li><a href="#/game/breakout">Breakout Brick Smash</a></li>
+        <li><a href="#/game/memory">Memory Match</a></li>
+        <li><a href="#/game/whack">Whack-a-Mole</a></li>
+        <li><a href="#/game/tictactoe">Tic-Tac-Toe vs AI</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h2>About</h2>
+      <ul>
+        <li><a href="#/support">Support &amp; FAQ</a></li>
+        <li><a href="#/">Home</a></li>
+        <li><a href="detail/game-detail.html?gid=blackjack&amp;sty=1&amp;is_detail=1">Store-style detail page</a></li>
+      </ul>
+      <p class="footer-note">A demo build of a zero-dependency HTML5 game portal.</p>
+    </div>
+  </div>
+  <p class="copyright">© 2026 FunMax Games. All games are original implementations built for this demo.</p>
+</footer>
+
+<script src="games.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

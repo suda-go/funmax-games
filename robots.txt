@@ -1,0 +1,9 @@
+# FunMax Games — robots.txt
+
+User-agent: *
+Allow: /
+
+# 游戏 iframe 的裸载入地址不需要单独索引
+Disallow: /embed/
+
+Sitemap: https://suda-go.github.io/funmax-games/sitemap.xml

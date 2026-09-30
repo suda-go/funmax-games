@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  FunMax Games — sitemap
+  注意：这里列的是生产环境应采用的语义化路径（/game/{slug}）。
+  当前 demo 为纯静态、无后端，路由用的是 hash（#/game/{slug}），
+  而搜索引擎不索引 hash fragment —— 上线前必须改成 history 路由 + 服务端渲染/预渲染，
+  详见 README 的「上线前必做」一节。
+-->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+  <url>
+    <loc>https://suda-go.github.io/funmax-games/</loc>
+    <changefreq>daily</changefreq>
+    <priority>1.0</priority>
+  </url>
+
+  <!-- 分类聚合页 -->
+  <url><loc>https://suda-go.github.io/funmax-games/t/puzzle</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://suda-go.github.io/funmax-games/t/arcade</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://suda-go.github.io/funmax-games/t/brain</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://suda-go.github.io/funmax-games/t/reflex</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://suda-go.github.io/funmax-games/t/new</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
+  <url><loc>https://suda-go.github.io/funmax-games/t/hot</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
+  <url><loc>https://suda-go.github.io/funmax-games/t/best</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
+
+  <!-- 游戏详情页 -->
+  <url>
+    <loc>https://suda-go.github.io/funmax-games/game/2048</loc>
+    <lastmod>2026-09-20</lastmod><changefreq>monthly</changefreq><priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://suda-go.github.io/funmax-games/game/snake</loc>
+    <lastmod>2026-09-18</lastmod><changefreq>monthly</changefreq><priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://suda-go.github.io/funmax-games/game/breakout</loc>
+    <lastmod>2026-09-11</lastmod><changefreq>monthly</changefreq><priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://suda-go.github.io/funmax-games/game/memory</loc>
+    <lastmod>2026-09-25</lastmod><changefreq>monthly</changefreq><priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://suda-go.github.io/funmax-games/game/whack</loc>
+    <lastmod>2026-09-26</lastmod><changefreq>monthly</changefreq><priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://suda-go.github.io/funmax-games/game/tictactoe</loc>
+    <lastmod>2026-09-14</lastmod><changefreq>monthly</changefreq><priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://suda-go.github.io/funmax-games/support</loc>
+    <changefreq>yearly</changefreq><priority>0.3</priority>
+  </url>
+
+</urlset>

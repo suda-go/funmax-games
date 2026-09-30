@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <!-- 移动端商店页写法：禁用缩放 + 强制竖屏。
+         注意 user-scalable=no 不满足 WCAG 1.4.4，生产环境建议改成 maximum-scale=5.0 -->
+    <meta
+      content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no,viewport-fit=cover"
+      name="viewport"
+    />
+    <meta content="yes" name="apple-mobile-web-app-capable" />
+    <meta content="black" name="apple-mobile-web-app-status-bar-style" />
+    <meta content="telephone=no" name="format-detection" />
+    <meta content="email=no" name="format-detection" />
+    <meta content="portrait" name="screen-orientation" />
+    <meta content="yes" name="apple-mobile-web-app-capable" />
+    <meta content="yes" name="full-screen" />
+    <meta content="true" name="x5-fullscreen" />
+    <title>Game Center</title>
+    <link rel="stylesheet" href="game-detail.css" />
+  </head>
+
+  <body>
+    <div id="app">
+      <div class="main" id="main">
+
+        <!-- ===== App 风格顶部导航栏（默认关闭，?topnav=1 开启）=====
+             高度等于 game-content 顶部那 13.2653vw 的留白，不挤压下方元素 -->
+        <header class="detail-nav" id="detail-nav">
+          <button class="nav-btn" id="nav-back" type="button" aria-label="Back">
+            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="M15.5 4.5 8 12l7.5 7.5" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </button>
+
+          <div class="nav-title" id="nav-title">Black Of Jack</div>
+
+          <div class="nav-actions">
+            <button class="nav-btn" id="nav-search" type="button" aria-label="Search">
+              <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <circle cx="10.6" cy="10.6" r="6.4" stroke="currentColor" stroke-width="2.1"/>
+                <path d="m15.4 15.4 4.3 4.3" stroke="currentColor" stroke-width="2.1" stroke-linecap="round"/>
+              </svg>
+            </button>
+            <button class="nav-btn" id="nav-share" type="button" aria-label="Share">
+              <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path d="M12 15.5V3.8m0 0L8.3 7.5M12 3.8l3.7 3.7" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M5.2 12.4v6.3c0 .8.7 1.5 1.5 1.5h10.6c.8 0 1.5-.7 1.5-1.5v-6.3" stroke="currentColor" stroke-width="2.1" stroke-linecap="round"/>
+              </svg>
+            </button>
+            <button class="nav-btn" id="nav-more" type="button" aria-label="More options"
+                    aria-haspopup="true" aria-expanded="false">
+              <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <circle cx="12" cy="5" r="1.9" fill="currentColor"/>
+                <circle cx="12" cy="12" r="1.9" fill="currentColor"/>
+                <circle cx="12" cy="19" r="1.9" fill="currentColor"/>
+              </svg>
+            </button>
+          </div>
+
+          <!-- 更多菜单 -->
+          <div class="nav-menu" id="nav-menu" role="menu" hidden>
+            <button class="nav-menu-item" role="menuitem" data-act="wishlist">Add to wishlist</button>
+            <button class="nav-menu-item" role="menuitem" data-act="copy">Copy link</button>
+            <button class="nav-menu-item" role="menuitem" data-act="home">Back to FunMax</button>
+          </div>
+        </header>
+
+        <!-- 轻提示条 -->
+        <div class="nav-toast" id="nav-toast" role="status" aria-live="polite" hidden></div>
+
+        <!-- 右上角固定 home 按钮（pulse 动画） -->
+        <a class="home-btn" id="home-btn" href="../index.html" aria-label="Home">
+          <img src="../assets/detail/home.svg" alt="home" />
+        </a>
+
+        <div class="game-content" id="game-content">
+
+          <!-- ===== 图标 + 标题 + 标签 + 开发者 ===== -->
+          <div class="game-detail">
+            <div class="game-icon">
+              <img id="g-icon" src="../assets/detail/icon-blackjack.svg" alt="icon" />
+            </div>
+            <div class="game-detail-right">
+              <div class="game-title" id="g-title">Black Of Jack</div>
+              <div class="game-tag-container" id="g-tags"></div>
+              <div class="game-developer" id="g-dev">FunMax Studio</div>
+            </div>
+          </div>
+
+          <!-- ===== 三段数据条（中间为 1px 竖分隔线） ===== -->
+          <div class="game-info-container">
+            <div class="game-info-item">
+              <div class="game-info-item-value">
+                <span id="g-rating">4.7</span>
+                <img src="../assets/detail/star.svg" alt="icon" />
+              </div>
+              <div class="game-info-item-title" id="g-rating-count">28M Ratings</div>
+            </div>
+            <div class="game-info-item">
+              <div class="game-info-item-value" id="g-players">100M+</div>
+              <div class="game-info-item-title">Players</div>
+            </div>
+            <div class="game-info-item">
+              <div class="game-info-item-value" id="g-rate">Rate of 12+</div>
+              <div class="game-info-item-title" id="g-rate-short">12+</div>
+            </div>
+          </div>
+
+          <!-- ===== 描述（sty=1 浅蓝卡片版） ===== -->
+          <div class="game-description" id="g-desc"></div>
+
+          <!-- ===== 主 CTA ===== -->
+          <button class="game-play-btn" id="play-btn" type="button">
+            <span class="auto-loading-inner" id="auto-loading-inner" hidden>Loading…</span>
+            <svg class="loading-btn loading-svg" id="loading-spinner" viewBox="0 0 24 24" hidden aria-hidden="true">
+              <path d="M12 2a10 10 0 1 0 10 10h-3a7 7 0 1 1-7-7V2Z"/>
+            </svg>
+            <img class="play-icon" id="play-icon" src="../assets/detail/play.svg" alt="" />
+            <div id="play-btn-text">Click to play</div>
+          </button>
+
+          <!-- ===== 截图横滑（大图 / 小图两种模式） ===== -->
+          <div class="game-screenshot-container" id="shots-container">
+            <div class="game-screenshot-wrapper" id="shots"></div>
+          </div>
+        </div>
+
+        <!-- ===== 可展开描述（sty=2 启用） ===== -->
+        <div class="game-description-new" id="desc-new" hidden>
+          <div class="game-description-new-title">About this game</div>
+          <div class="game-description-new-content collapsed" id="desc-new-content"></div>
+        </div>
+
+        <!-- ===== 推荐游戏 3×2 ===== -->
+        <div class="game-recommend" id="recommend">
+          <div class="game-recommend-title">You may also like</div>
+          <div class="game-recommend-list" id="recommend-list"></div>
+        </div>
+
+        <!-- ===== 游戏分类导航 =====
+             3 列缩略图网格 + 分类名（CSS ::after 自动补 " Games"）
+             + 标签 pill 行 + Random Game 按钮 -->
+        <section class="game-category" id="game-category">
+          <div class="box-header">
+            <h2>Game Categories</h2>
+            <a class="box-header-more" href="../index.html#/" id="cat-all">All tags &rsaquo;</a>
+          </div>
+
+          <div class="list" id="cat-list"></div>
+
+          <!-- 纯文字 pill -->
+          <div class="tag-panel">
+            <h3 class="tag-panel-title">Tags</h3>
+            <ul class="nav-pills-tags" id="tag-list"></ul>
+          </div>
+
+          <a class="random-game-btn" href="#" id="random-btn">
+            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <rect x="3.2" y="3.2" width="17.6" height="17.6" rx="4.4" stroke="currentColor" stroke-width="1.9"/>
+              <circle cx="8.6" cy="8.6" r="1.7" fill="currentColor"/>
+              <circle cx="15.4" cy="15.4" r="1.7" fill="currentColor"/>
+              <circle cx="15.4" cy="8.6" r="1.7" fill="currentColor"/>
+              <circle cx="8.6" cy="15.4" r="1.7" fill="currentColor"/>
+              <circle cx="12" cy="12" r="1.7" fill="currentColor"/>
+            </svg>
+            <span>Play A Random Game</span>
+          </a>
+        </section>
+
+        <!-- ===== 底部固定品牌条 ===== -->
+        <div class="dp-banner" id="dp-banner">
+          <div class="dp-banner-brand">
+            <div class="dp-banner-icon">
+              <img src="../assets/detail/icon-blackjack.svg" alt="icon" />
+            </div>
+            <div class="dp-banner-title" id="banner-title">Black Of Jack</div>
+          </div>
+          <button class="dp-banner-btn" type="button" id="banner-btn">Play</button>
+        </div>
+
+        <!-- ===== 滚动后浮出的播放条 ===== -->
+        <div class="floating-play-bar" id="float-bar">
+          <button class="floating-play-btn" type="button" id="float-btn">
+            <img class="floating-play-icon" src="../assets/detail/play.svg" alt="" />
+            Click to play
+          </button>
+        </div>
+
+        <!-- ===== 游戏墙弹窗（style2 / style3 / style4） ===== -->
+        <div class="game-modal" id="modal" hidden>
+          <div class="game-modal-content game-modal-style2" id="modal-content"></div>
+          <img class="game-modal-close" id="modal-close" src="../assets/detail/close.svg" alt="close" />
+        </div>
+
+      </div>
+    </div>
+
+    <script src="game-detail.js"></script>
+  </body>
+</html>

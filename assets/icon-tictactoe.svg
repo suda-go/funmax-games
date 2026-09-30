@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 240" width="240" height="240" role="img" aria-label="Tic tac toe">
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#38bdf8"/><stop offset="1" stop-color="#0e7490"/>
+    </linearGradient>
+  </defs>
+  <rect width="240" height="240" rx="42" fill="url(#g)"/>
+  <g stroke="#fff" stroke-opacity=".75" stroke-width="7" stroke-linecap="round">
+    <path d="M98 44v152M142 44v152M44 98h152M44 142h152"/>
+  </g>
+  <g stroke="#fff" stroke-width="11" stroke-linecap="round" fill="none">
+    <path d="M58 58l26 26M84 58L58 84"/>
+    <path d="M156 156l26 26M182 156l-26 26"/>
+  </g>
+  <circle cx="120" cy="120" r="17" fill="none" stroke="#fde047" stroke-width="11"/>
+  <circle cx="71" cy="120" r="15" fill="none" stroke="#fde047" stroke-width="10" stroke-opacity=".55"/>
+</svg>

@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1110 684" width="1110" height="684" role="img" aria-label="Blackjack table gameplay">
+  <defs>
+    <linearGradient id="t" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#2e7fb5"/><stop offset=".72" stop-color="#1d6392"/>
+    </linearGradient>
+    <linearGradient id="wood" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#a9642c"/><stop offset="1" stop-color="#6b3a15"/>
+    </linearGradient>
+  </defs>
+  <rect width="1110" height="684" fill="url(#t)"/>
+  <text x="555" y="272" text-anchor="middle" font-family="Georgia,serif" font-size="30" fill="#fff" fill-opacity=".22" letter-spacing="3">BLACKJACK PAYS 3 TO 2</text>
+  <path d="M255 300a300 74 0 0 1 600 0" fill="none" stroke="#bcd9ef" stroke-opacity=".3" stroke-width="26"/>
+  <text x="555" y="312" text-anchor="middle" font-family="Georgia,serif" font-size="21" fill="#0d3b5c" fill-opacity=".72">Dealer Must draw to 16 and Stand on 17</text>
+  <g transform="translate(470 78)">
+    <rect x="0" y="0" width="84" height="116" rx="8" fill="#fdfdfd" stroke="#cfcfcf" stroke-width="2"/>
+    <text x="13" y="33" font-family="Georgia,serif" font-size="28" font-weight="700" fill="#d92d3c">7</text>
+    <path d="M42 56c-9 9-14 13-14 19a7.4 7.4 0 0 0 12 5.6c-.5 3-1.8 5.4-3.9 6.9h12.4c-2.1-1.5-3.4-3.9-3.9-6.9a7.4 7.4 0 0 0 12-5.6c0-6-5-10-14.6-19Z" fill="#d92d3c"/>
+    <rect x="88" y="0" width="84" height="116" rx="8" fill="#c58a4a" stroke="#8a5a26" stroke-width="2"/>
+    <g stroke="#8a5a26" stroke-width="3" opacity=".6">
+      <path d="M96 10h68M96 26h68M96 42h68M96 58h68M96 74h68M96 90h68M96 106h68"/>
+    </g>
+  </g>
+  <g transform="translate(468 352)">
+    <circle cx="-6" cy="-6" r="22" fill="#12222f"/>
+    <text x="-6" y="2" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="22" font-weight="700" fill="#fff">16</text>
+    <rect x="0" y="0" width="84" height="116" rx="8" fill="#fdfdfd" stroke="#cfcfcf" stroke-width="2"/>
+    <text x="12" y="34" font-family="Georgia,serif" font-size="28" font-weight="700" fill="#16181d">6</text>
+    <path d="M42 58c-9 9-14 13-14 19a7.4 7.4 0 0 0 12 5.6c-.5 3-1.8 5.4-3.9 6.9h12.4c-2.1-1.5-3.4-3.9-3.9-6.9a7.4 7.4 0 0 0 12-5.6c0-6-5-10-14.6-19Z" fill="#16181d"/>
+    <rect x="88" y="0" width="84" height="116" rx="8" fill="#fdfdfd" stroke="#cfcfcf" stroke-width="2"/>
+    <text x="100" y="34" font-family="Georgia,serif" font-size="28" font-weight="700" fill="#16181d">K</text>
+    <rect x="112" y="46" width="44" height="58" rx="5" fill="#8a2b8a" opacity=".85"/>
+  </g>
+  <g transform="translate(555 500)">
+    <ellipse cx="0" cy="0" rx="52" ry="30" fill="#0f4f78"/>
+    <circle cx="0" cy="-6" r="24" fill="#e8e8e8" stroke="#b8b8b8" stroke-width="3"/>
+    <circle cx="0" cy="-6" r="12" fill="none" stroke="#d92d3c" stroke-width="5" stroke-dasharray="6 5"/>
+    <text x="0" y="22" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="18" font-weight="700" fill="#fff">200</text>
+  </g>
+  <g transform="translate(340 540)" font-family="Helvetica,Arial,sans-serif" font-size="19" font-weight="700" fill="#fff">
+    <g><rect x="0" y="0" width="104" height="42" rx="9" fill="#3a1e63" stroke="#8b5cf6" stroke-width="2.5"/><text x="52" y="28" text-anchor="middle">Double</text></g>
+    <g><rect x="112" y="0" width="90" height="42" rx="9" fill="#1e2b3f" stroke="#64748b" stroke-width="2.5"/><text x="157" y="28" text-anchor="middle">Split</text></g>
+    <g><rect x="210" y="0" width="100" height="42" rx="9" fill="#5c1420" stroke="#f87171" stroke-width="2.5"/><text x="260" y="28" text-anchor="middle">Stand</text></g>
+    <g><rect x="318" y="0" width="90" height="42" rx="9" fill="#0d4f3c" stroke="#34d399" stroke-width="2.5"/><text x="363" y="28" text-anchor="middle">Hit</text></g>
+  </g>
+  <rect x="0" y="596" width="1110" height="44" fill="url(#wood)"/>
+  <rect x="0" y="640" width="1110" height="44" fill="#1b1b1f"/>
+  <g transform="translate(300 618)">
+    <g><circle cx="0" cy="0" r="23" fill="#d92d3c" stroke="#fff" stroke-width="4"/><text x="0" y="6" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="14" font-weight="700" fill="#fff">100</text></g>
+    <g transform="translate(62 0)"><circle r="23" fill="#16a34a" stroke="#fff" stroke-width="4"/><text y="6" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="14" font-weight="700" fill="#fff">500</text></g>
+    <g transform="translate(124 0)"><circle r="23" fill="#7e22ce" stroke="#fff" stroke-width="4"/><text y="6" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="14" font-weight="700" fill="#fff">5K</text></g>
+    <g transform="translate(186 0)"><circle r="23" fill="#1f3a93" stroke="#fff" stroke-width="4"/><text y="6" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="13" font-weight="700" fill="#fff">10K</text></g>
+    <g transform="translate(248 0)"><circle r="23" fill="#0e7490" stroke="#fff" stroke-width="4"/><text y="6" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="13" font-weight="700" fill="#fff">20K</text></g>
+    <g transform="translate(310 0)"><circle r="23" fill="#b45309" stroke="#fff" stroke-width="4"/><text y="6" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="14" font-weight="700" fill="#fff">ALL</text></g>
+  </g>
+  <g transform="translate(0 640)">
+    <circle cx="390" cy="22" r="17" fill="#fff"/>
+    <rect x="440" y="14" width="150" height="7" rx="3.5" fill="#4b5563"/>
+    <text x="470" y="36" font-family="Helvetica,Arial,sans-serif" font-size="16" font-weight="700" fill="#fbbf24">9.7K</text>
+    <g transform="translate(630 4)"><rect width="40" height="36" rx="8" fill="#3f2b12"/><text x="20" y="25" text-anchor="middle" font-size="19">🍒</text></g>
+    <g transform="translate(686 4)"><rect width="40" height="36" rx="8" fill="#3f2b12"/><text x="20" y="25" text-anchor="middle" font-size="19">🎴</text></g>
+  </g>
+</svg>
